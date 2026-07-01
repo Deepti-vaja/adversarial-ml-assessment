@@ -1,0 +1,26 @@
+# Python environments
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# MLflow tracking store & artifacts
+mlflow.db
+mlruns/
+
+# Testing
+.pytest_cache/
+.coverage
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Large checkpoints & data
+models/checkpoints/*.pth
+data/cifar10/
+*.tar.gz

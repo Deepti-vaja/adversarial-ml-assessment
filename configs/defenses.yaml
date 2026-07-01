@@ -1,0 +1,26 @@
+# Centralized configuration for Task D Defense subsystem
+
+seed: 42
+
+model:
+  config_path: "./configs/baseline.yaml"
+  baseline_checkpoint_path: "./models/checkpoints/fraud_cnn_baseline.pth"
+  adv_trained_checkpoint_path: "./models/checkpoints/fraud_cnn_adv_trained.pth"
+
+adversarial_training:
+  epochs: 10
+  batch_size: 64
+  learning_rate: 0.0005
+  attack:
+    eps: 0.05
+    eps_step: 0.01
+    max_iter: 7
+
+feature_squeezing:
+  bit_depth: 5
+  clip_values: [0.0, 1.0]
+
+evaluation:
+  batch_size: 64
+  max_samples: null
+  output_csv_path: "./reports/defense_comparison.csv"

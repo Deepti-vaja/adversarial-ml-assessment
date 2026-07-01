@@ -1,0 +1,157 @@
+[2026-06-30 16:02:16] [INFO] [TrainBaseline]: Starting baseline training pipeline with config: ./configs/baseline.yaml
+[2026-06-30 16:02:16] [INFO] [TrainBaseline]: DRY RUN ENABLED: Limiting training to 1 epoch for verification.
+[2026-06-30 16:02:16] [INFO] [TrainBaseline]: Initializing CIFAR-10 proxy dataset and DataLoaders...
+[2026-06-30 16:02:19] [INFO] [TrainBaseline]: Instantiating FraudCNN architecture...
+[2026-06-30 16:02:19] [INFO] [TrainBaseline]: Computation device selected: cpu
+[2026-06-30 16:03:42] [INFO] [TrainBaseline]: Starting baseline training pipeline with config: ./configs/baseline.yaml
+[2026-06-30 16:03:42] [INFO] [TrainBaseline]: DRY RUN ENABLED: Limiting training to 1 epoch for verification.
+[2026-06-30 16:03:42] [INFO] [TrainBaseline]: Initializing CIFAR-10 proxy dataset and DataLoaders...
+[2026-06-30 16:03:45] [INFO] [TrainBaseline]: Instantiating FraudCNN architecture...
+[2026-06-30 16:03:45] [INFO] [TrainBaseline]: Computation device selected: cpu
+[2026-06-30 16:03:45] [INFO] [TrainBaseline]: MLflow Run ID started: 465e7db0c70f45acad456d2eb03da2bb
+[2026-06-30 16:03:47] [INFO] [TrainBaseline]: Epoch [01/01] Train Loss: 1.0901 | Train Acc: 40.62% | Val Loss: 1.0960 | Val Acc: 56.25%
+[2026-06-30 16:03:47] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-06-30 16:03:47] [INFO] [TrainBaseline]: Training completed in 0.04 minutes (0.0006 hours).
+[2026-06-30 16:03:47] [INFO] [TrainBaseline]: Loading best checkpoint for final clean test set evaluation...
+[2026-06-30 16:03:47] [INFO] [TrainBaseline]: Loaded checkpoint from ./models/checkpoints\fraud_cnn_baseline.pth (epoch 1)
+[2026-06-30 16:03:48] [INFO] [TrainBaseline]: Final Clean Test Loss: 1.0977 | Clean Test Accuracy: 43.75%
+[2026-06-30 16:03:48] [INFO] [TrainBaseline]: Logging and registering FraudCNN model artifact in MLflow...
+[2026-06-30 16:03:48] [WARNING] [TrainBaseline]: Could not register model to MLflow model registry (local file store limitation or offline): If `serialization_format` is set to 'pt2', then input_example is required. It must be a numpy array or torch tensor, or a tuple/list of numpy arrays or torch tensors. This is because 'pt2' is a traced-graph format: PyTorch traces the model graph by virtually executing model.forward with the provided example input.
+[2026-06-30 16:05:20] [INFO] [TrainBaseline]: Starting baseline training pipeline with config: ./configs/baseline.yaml
+[2026-06-30 16:05:20] [INFO] [TrainBaseline]: DRY RUN ENABLED: Limiting training to 1 epoch for verification.
+[2026-06-30 16:05:20] [INFO] [TrainBaseline]: Initializing CIFAR-10 proxy dataset and DataLoaders...
+[2026-06-30 16:05:23] [INFO] [TrainBaseline]: Instantiating FraudCNN architecture...
+[2026-06-30 16:05:23] [INFO] [TrainBaseline]: Computation device selected: cpu
+[2026-06-30 16:05:23] [INFO] [TrainBaseline]: MLflow Run ID started: bfb371b48b674a3287b0f766fc472e97
+[2026-06-30 16:05:24] [INFO] [TrainBaseline]: Epoch [01/01] Train Loss: 1.0901 | Train Acc: 40.62% | Val Loss: 1.0960 | Val Acc: 56.25%
+[2026-06-30 16:05:24] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-06-30 16:05:24] [INFO] [TrainBaseline]: Training completed in 0.03 minutes (0.0004 hours).
+[2026-06-30 16:05:24] [INFO] [TrainBaseline]: Loading best checkpoint for final clean test set evaluation...
+[2026-06-30 16:05:24] [INFO] [TrainBaseline]: Loaded checkpoint from ./models/checkpoints\fraud_cnn_baseline.pth (epoch 1)
+[2026-06-30 16:05:25] [INFO] [TrainBaseline]: Final Clean Test Loss: 1.0977 | Clean Test Accuracy: 43.75%
+[2026-06-30 16:05:25] [INFO] [TrainBaseline]: Logging and registering FraudCNN model artifact in MLflow...
+[2026-06-30 16:05:28] [WARNING] [TrainBaseline]: Could not register model to MLflow model registry (local file store limitation or offline): Constraints violated (dynamic_dim)! For more information, run with TORCH_LOGS="+dynamic".
+  - You marked dynamic_dim as dynamic but your code specialized it to be a constant (1). If you're using mark_dynamic, either remove it or use maybe_mark_dynamic. If you're using Dim.DYNAMIC, replace it with either Dim.STATIC or Dim.AUTO.
+Suggested fixes:
+  dynamic_dim = 1
+
+The error above occurred when calling torch.export.export. If you would like to view some more information about this error, and get a list of all other errors that may occur in your export call, you can replace your `export()` call with `draft_export()`.
+[2026-06-30 16:06:23] [INFO] [TrainBaseline]: Starting baseline training pipeline with config: ./configs/baseline.yaml
+[2026-06-30 16:06:23] [INFO] [TrainBaseline]: Initializing CIFAR-10 proxy dataset and DataLoaders...
+[2026-06-30 16:06:26] [INFO] [TrainBaseline]: Instantiating FraudCNN architecture...
+[2026-06-30 16:06:26] [INFO] [TrainBaseline]: Computation device selected: cpu
+[2026-06-30 16:06:26] [INFO] [TrainBaseline]: MLflow Run ID started: da2caaa6e9d64582a0eadcfbd6c59ce6
+[2026-06-30 16:11:15] [INFO] [TrainBaseline]: Epoch [01/01] Train Loss: 0.7405 | Train Acc: 67.04% | Val Loss: 0.6276 | Val Acc: 73.24%
+[2026-06-30 16:11:15] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-06-30 16:11:15] [INFO] [TrainBaseline]: Training completed in 4.81 minutes (0.0801 hours).
+[2026-06-30 16:11:15] [INFO] [TrainBaseline]: Loading best checkpoint for final clean test set evaluation...
+[2026-06-30 16:11:15] [INFO] [TrainBaseline]: Loaded checkpoint from ./models/checkpoints\fraud_cnn_baseline.pth (epoch 1)
+[2026-06-30 16:11:32] [INFO] [TrainBaseline]: Final Clean Test Loss: 0.6166 | Clean Test Accuracy: 73.51%
+[2026-06-30 16:11:32] [WARNING] [TrainBaseline]: [LIMITATION] Clean test accuracy (73.51%) did not satisfy the >=75.0% acceptance threshold. Potential architectural refinements for subsequent iteration include: adding residual skip connections, increasing filter progression depth, or using cyclic learning rates.
+[2026-06-30 16:11:32] [INFO] [TrainBaseline]: Logging and registering FraudCNN model artifact in MLflow...
+[2026-06-30 16:11:34] [WARNING] [TrainBaseline]: Could not register model to MLflow model registry (local file store limitation or offline): Constraints violated (dynamic_dim)! For more information, run with TORCH_LOGS="+dynamic".
+  - You marked dynamic_dim as dynamic but your code specialized it to be a constant (1). If you're using mark_dynamic, either remove it or use maybe_mark_dynamic. If you're using Dim.DYNAMIC, replace it with either Dim.STATIC or Dim.AUTO.
+Suggested fixes:
+  dynamic_dim = 1
+
+The error above occurred when calling torch.export.export. If you would like to view some more information about this error, and get a list of all other errors that may occur in your export call, you can replace your `export()` call with `draft_export()`.
+[2026-06-30 16:12:09] [INFO] [TrainBaseline]: Starting baseline training pipeline with config: ./configs/baseline.yaml
+[2026-06-30 16:12:09] [INFO] [TrainBaseline]: Initializing CIFAR-10 proxy dataset and DataLoaders...
+[2026-06-30 16:12:12] [INFO] [TrainBaseline]: Instantiating FraudCNN architecture...
+[2026-06-30 16:12:12] [INFO] [TrainBaseline]: Computation device selected: cpu
+[2026-06-30 16:12:12] [INFO] [TrainBaseline]: MLflow Run ID started: 9f6bd3332ebf4ed49e420d6fa4941a9a
+[2026-06-30 16:16:29] [INFO] [TrainBaseline]: Epoch [01/02] Train Loss: 0.7405 | Train Acc: 67.04% | Val Loss: 0.6276 | Val Acc: 73.24%
+[2026-06-30 16:16:29] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-06-30 16:20:42] [INFO] [TrainBaseline]: Epoch [02/02] Train Loss: 0.6315 | Train Acc: 72.30% | Val Loss: 0.5315 | Val Acc: 76.92%
+[2026-06-30 16:20:42] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-06-30 16:20:42] [INFO] [TrainBaseline]: Training completed in 8.51 minutes (0.1418 hours).
+[2026-06-30 16:20:42] [INFO] [TrainBaseline]: Loading best checkpoint for final clean test set evaluation...
+[2026-06-30 16:20:42] [INFO] [TrainBaseline]: Loaded checkpoint from ./models/checkpoints\fraud_cnn_baseline.pth (epoch 2)
+[2026-06-30 16:20:57] [INFO] [TrainBaseline]: Final Clean Test Loss: 0.5310 | Clean Test Accuracy: 77.70%
+[2026-06-30 16:20:57] [INFO] [TrainBaseline]: [SUCCESS] Clean test accuracy (77.70%) meets or exceeds the >=75.0% acceptance threshold.
+[2026-06-30 16:20:57] [INFO] [TrainBaseline]: Logging and registering FraudCNN model artifact in MLflow...
+[2026-06-30 16:20:59] [WARNING] [TrainBaseline]: Could not register model to MLflow model registry (local file store limitation or offline): Constraints violated (dynamic_dim)! For more information, run with TORCH_LOGS="+dynamic".
+  - You marked dynamic_dim as dynamic but your code specialized it to be a constant (1). If you're using mark_dynamic, either remove it or use maybe_mark_dynamic. If you're using Dim.DYNAMIC, replace it with either Dim.STATIC or Dim.AUTO.
+Suggested fixes:
+  dynamic_dim = 1
+
+The error above occurred when calling torch.export.export. If you would like to view some more information about this error, and get a list of all other errors that may occur in your export call, you can replace your `export()` call with `draft_export()`.
+[2026-07-01 10:22:47] [INFO] [TrainBaseline]: Starting baseline training pipeline with config: ./configs/baseline.yaml
+[2026-07-01 10:22:47] [INFO] [TrainBaseline]: Initializing CIFAR-10 proxy dataset and DataLoaders...
+[2026-07-01 10:22:50] [INFO] [TrainBaseline]: Instantiating FraudCNN architecture...
+[2026-07-01 10:22:50] [INFO] [TrainBaseline]: Computation device selected: cpu
+[2026-07-01 10:22:50] [INFO] [TrainBaseline]: MLflow Run ID started: 618deb06bbec4cf9907de3481ec1fadf
+[2026-07-01 10:27:06] [INFO] [TrainBaseline]: Epoch [01/30] Train Loss: 0.7405 | Train Acc: 67.04% | Val Loss: 0.6276 | Val Acc: 73.24%
+[2026-07-01 10:27:06] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 10:31:33] [INFO] [TrainBaseline]: Epoch [02/30] Train Loss: 0.6418 | Train Acc: 71.63% | Val Loss: 0.5340 | Val Acc: 76.70%
+[2026-07-01 10:31:33] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 10:35:49] [INFO] [TrainBaseline]: Epoch [03/30] Train Loss: 0.5992 | Train Acc: 73.87% | Val Loss: 0.5133 | Val Acc: 77.92%
+[2026-07-01 10:35:49] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 10:40:09] [INFO] [TrainBaseline]: Epoch [04/30] Train Loss: 0.5697 | Train Acc: 75.75% | Val Loss: 0.4897 | Val Acc: 78.74%
+[2026-07-01 10:40:09] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 10:44:26] [INFO] [TrainBaseline]: Epoch [05/30] Train Loss: 0.5409 | Train Acc: 77.17% | Val Loss: 0.4373 | Val Acc: 81.34%
+[2026-07-01 10:44:26] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 10:48:46] [INFO] [TrainBaseline]: Epoch [06/30] Train Loss: 0.5188 | Train Acc: 78.31% | Val Loss: 0.5490 | Val Acc: 77.80%
+[2026-07-01 10:53:08] [INFO] [TrainBaseline]: Epoch [07/30] Train Loss: 0.5007 | Train Acc: 79.07% | Val Loss: 0.4381 | Val Acc: 80.94%
+[2026-07-01 10:57:28] [INFO] [TrainBaseline]: Epoch [08/30] Train Loss: 0.4848 | Train Acc: 79.81% | Val Loss: 0.4294 | Val Acc: 81.38%
+[2026-07-01 10:57:28] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 11:02:05] [INFO] [TrainBaseline]: Epoch [09/30] Train Loss: 0.4716 | Train Acc: 80.76% | Val Loss: 0.4190 | Val Acc: 82.70%
+[2026-07-01 11:02:05] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 11:06:30] [INFO] [TrainBaseline]: Epoch [10/30] Train Loss: 0.4594 | Train Acc: 81.24% | Val Loss: 0.3772 | Val Acc: 83.74%
+[2026-07-01 11:06:30] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 11:10:47] [INFO] [TrainBaseline]: Epoch [11/30] Train Loss: 0.4534 | Train Acc: 81.51% | Val Loss: 0.3754 | Val Acc: 84.46%
+[2026-07-01 11:10:47] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 11:15:11] [INFO] [TrainBaseline]: Epoch [12/30] Train Loss: 0.4379 | Train Acc: 82.27% | Val Loss: 0.3868 | Val Acc: 83.28%
+[2026-07-01 11:19:19] [INFO] [TrainBaseline]: Epoch [13/30] Train Loss: 0.4267 | Train Acc: 82.68% | Val Loss: 0.3650 | Val Acc: 84.72%
+[2026-07-01 11:19:19] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 11:23:47] [INFO] [TrainBaseline]: Epoch [14/30] Train Loss: 0.4218 | Train Acc: 83.03% | Val Loss: 0.3674 | Val Acc: 84.86%
+[2026-07-01 11:23:47] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 11:28:05] [INFO] [TrainBaseline]: Epoch [15/30] Train Loss: 0.4112 | Train Acc: 83.47% | Val Loss: 0.3364 | Val Acc: 86.14%
+[2026-07-01 11:28:05] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 11:32:08] [INFO] [TrainBaseline]: Epoch [16/30] Train Loss: 0.4033 | Train Acc: 83.88% | Val Loss: 0.3525 | Val Acc: 84.80%
+[2026-07-01 11:36:11] [INFO] [TrainBaseline]: Epoch [17/30] Train Loss: 0.3940 | Train Acc: 84.32% | Val Loss: 0.3245 | Val Acc: 86.28%
+[2026-07-01 11:36:12] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 11:39:58] [INFO] [TrainBaseline]: Epoch [18/30] Train Loss: 0.3871 | Train Acc: 84.60% | Val Loss: 0.3359 | Val Acc: 85.66%
+[2026-07-01 11:43:45] [INFO] [TrainBaseline]: Epoch [19/30] Train Loss: 0.3791 | Train Acc: 85.01% | Val Loss: 0.3086 | Val Acc: 87.92%
+[2026-07-01 11:43:45] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 11:48:02] [INFO] [TrainBaseline]: Epoch [20/30] Train Loss: 0.3697 | Train Acc: 85.32% | Val Loss: 0.3001 | Val Acc: 88.16%
+[2026-07-01 11:48:02] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 11:51:47] [INFO] [TrainBaseline]: Epoch [21/30] Train Loss: 0.3671 | Train Acc: 85.44% | Val Loss: 0.3055 | Val Acc: 87.52%
+[2026-07-01 11:55:45] [INFO] [TrainBaseline]: Epoch [22/30] Train Loss: 0.3619 | Train Acc: 85.50% | Val Loss: 0.2882 | Val Acc: 88.60%
+[2026-07-01 11:55:45] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 11:59:40] [INFO] [TrainBaseline]: Epoch [23/30] Train Loss: 0.3588 | Train Acc: 85.71% | Val Loss: 0.2900 | Val Acc: 88.46%
+[2026-07-01 12:03:53] [INFO] [TrainBaseline]: Epoch [24/30] Train Loss: 0.3519 | Train Acc: 86.04% | Val Loss: 0.2861 | Val Acc: 88.56%
+[2026-07-01 12:07:57] [INFO] [TrainBaseline]: Epoch [25/30] Train Loss: 0.3461 | Train Acc: 86.26% | Val Loss: 0.2805 | Val Acc: 88.70%
+[2026-07-01 12:07:57] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 12:12:14] [INFO] [TrainBaseline]: Epoch [26/30] Train Loss: 0.3439 | Train Acc: 86.33% | Val Loss: 0.2833 | Val Acc: 88.92%
+[2026-07-01 12:12:14] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 12:16:31] [INFO] [TrainBaseline]: Epoch [27/30] Train Loss: 0.3411 | Train Acc: 86.64% | Val Loss: 0.2813 | Val Acc: 88.70%
+[2026-07-01 12:20:31] [INFO] [TrainBaseline]: Epoch [28/30] Train Loss: 0.3415 | Train Acc: 86.46% | Val Loss: 0.2828 | Val Acc: 88.74%
+[2026-07-01 12:24:24] [INFO] [TrainBaseline]: Epoch [29/30] Train Loss: 0.3423 | Train Acc: 86.38% | Val Loss: 0.2777 | Val Acc: 89.00%
+[2026-07-01 12:24:25] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 12:28:14] [INFO] [TrainBaseline]: Epoch [30/30] Train Loss: 0.3405 | Train Acc: 86.56% | Val Loss: 0.2776 | Val Acc: 88.88%
+[2026-07-01 12:28:14] [INFO] [TrainBaseline]: Training completed in 125.39 minutes (2.0899 hours).
+[2026-07-01 12:28:14] [INFO] [TrainBaseline]: Loading best checkpoint for final clean test set evaluation...
+[2026-07-01 12:28:14] [INFO] [TrainBaseline]: Loaded checkpoint from ./models/checkpoints\fraud_cnn_baseline.pth (epoch 29)
+[2026-07-01 12:28:28] [INFO] [TrainBaseline]: Final Clean Test Loss: 0.2806 | Clean Test Accuracy: 88.82%
+[2026-07-01 12:28:28] [INFO] [TrainBaseline]: [SUCCESS] Clean test accuracy (88.82%) meets or exceeds the >=75.0% acceptance threshold.
+[2026-07-01 12:28:28] [INFO] [TrainBaseline]: Logging and registering FraudCNN model artifact in MLflow...
+[2026-07-01 12:28:33] [WARNING] [TrainBaseline]: Could not register model to MLflow model registry (local file store limitation or offline): Constraints violated (dynamic_dim)! For more information, run with TORCH_LOGS="+dynamic".
+  - You marked dynamic_dim as dynamic but your code specialized it to be a constant (1). If you're using mark_dynamic, either remove it or use maybe_mark_dynamic. If you're using Dim.DYNAMIC, replace it with either Dim.STATIC or Dim.AUTO.
+Suggested fixes:
+  dynamic_dim = 1
+
+The error above occurred when calling torch.export.export. If you would like to view some more information about this error, and get a list of all other errors that may occur in your export call, you can replace your `export()` call with `draft_export()`.
+[2026-07-01 18:05:16] [INFO] [TrainBaseline]: Starting baseline training pipeline with config: ./configs/baseline.yaml
+[2026-07-01 18:05:16] [INFO] [TrainBaseline]: DRY RUN ENABLED: Limiting training to 1 epoch for verification.
+[2026-07-01 18:05:16] [INFO] [TrainBaseline]: Initializing CIFAR-10 proxy dataset and DataLoaders...
+[2026-07-01 18:05:19] [INFO] [TrainBaseline]: Instantiating FraudCNN architecture...
+[2026-07-01 18:05:19] [INFO] [TrainBaseline]: Computation device selected: cpu
+[2026-07-01 18:05:20] [INFO] [TrainBaseline]: MLflow Run ID started: fa943ecb252d44a1a21d57ffb11323e4
+[2026-07-01 18:05:22] [INFO] [TrainBaseline]: Epoch [01/01] Train Loss: 1.0901 | Train Acc: 40.62% | Val Loss: 1.0960 | Val Acc: 56.25%
+[2026-07-01 18:05:22] [INFO] [TrainBaseline]: Checkpoint successfully saved to: ./models/checkpoints\fraud_cnn_baseline.pth
+[2026-07-01 18:05:22] [INFO] [TrainBaseline]: Training completed in 0.04 minutes (0.0007 hours).
+[2026-07-01 18:05:22] [INFO] [TrainBaseline]: Loading best checkpoint for final clean test set evaluation...
+[2026-07-01 18:05:22] [INFO] [TrainBaseline]: Loaded checkpoint from ./models/checkpoints\fraud_cnn_baseline.pth (epoch 1)
+[2026-07-01 18:05:22] [INFO] [TrainBaseline]: Final Clean Test Loss: 1.0977 | Clean Test Accuracy: 43.75%
+[2026-07-01 18:05:22] [INFO] [TrainBaseline]: Logging and registering FraudCNN model artifact in MLflow...

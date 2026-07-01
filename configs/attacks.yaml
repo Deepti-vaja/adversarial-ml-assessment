@@ -1,0 +1,28 @@
+# Centralized configuration for Task B Adversarial Evaluation subsystem
+
+seed: 42
+
+model:
+  config_path: "./configs/baseline.yaml"
+  checkpoint_path: "./models/checkpoints/fraud_cnn_baseline.pth"
+
+evaluation:
+  batch_size: 64
+  max_samples: null  # Optional override for quick testing (e.g. CLI flag --max-samples)
+
+fgsm:
+  epsilons: [0.01, 0.05, 0.1, 0.2]
+  output_plot_path: "./reports/fgsm_epsilon_sweep.png"
+  output_csv_path: "./reports/fgsm_epsilon_sweep.csv"
+
+pgd:
+  eps: 0.05
+  eps_step: 0.01
+  steps_list: [20, 40]
+
+cw:
+  confidence: 0.0
+  learning_rate: 0.01
+  max_iter: 50
+  binary_search_steps: 3
+  samples_per_class: 200  # Stratified sample of 200 images per class (total 600)
