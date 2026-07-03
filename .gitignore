@@ -24,3 +24,12 @@ Thumbs.db
 models/checkpoints/*.pth
 data/cifar10/
 *.tar.gz
+
+# Local databases & vector index
+rag/vector_store/
+
+# Audit & scratch documents
+newproj.md
+CURRENT_PROJECT_IMPLEMENTATION_STATUS.md
+TECHNICAL_BLUEPRINT_COMPLIANCE_REVIEW.md
+tatus

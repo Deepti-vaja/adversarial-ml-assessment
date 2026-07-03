@@ -7,6 +7,8 @@ Renders side-by-side comparison plots colored by true class and predicted class.
 import os
 from typing import List, Optional, Tuple
 import numpy as np
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 try:

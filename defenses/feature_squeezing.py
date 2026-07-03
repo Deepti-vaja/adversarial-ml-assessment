@@ -9,14 +9,53 @@ import numpy as np
 import torch
 import torch.nn as nn
 from art.estimators.classification import PyTorchClassifier
-from art.defences.preprocessor import Preprocessor, FeatureSqueezing, SpatialSmoothing
+from art.defences.preprocessor import FeatureSqueezing, SpatialSmoothing
+from art.defences.preprocessor.preprocessor import PreprocessorPyTorch
 
 from utils.logging import get_logger
 
 logger = get_logger("FeatureSqueezingDefense")
 
 
-class CompositePreprocessor(Preprocessor):
+class PyTorchSpatialSmoothing(PreprocessorPyTorch):
+    """PyTorch wrapper for ART SpatialSmoothing with Straight-Through Estimator autograd support."""
+    def __init__(self, window_size: int = 3, clip_values: Tuple[float, float] = (0.0, 1.0)):
+        super().__init__(device_type="gpu" if torch.cuda.is_available() else "cpu", is_fitted=True, apply_fit=False, apply_predict=True)
+        self.smoother = SpatialSmoothing(window_size=window_size, channels_first=True, clip_values=clip_values)
+
+    def forward(self, x: torch.Tensor, y: Optional[Any] = None) -> Tuple[torch.Tensor, Optional[Any]]:
+        res_x = x.detach().cpu().numpy()
+        res_y = y.detach().cpu().numpy() if isinstance(y, torch.Tensor) else y
+        res_x, res_y = self.smoother(res_x, res_y)
+        x_out_detached = torch.tensor(res_x.astype(np.float32), device=x.device)
+        x_out = x + (x_out_detached - x).detach()
+        y_out = torch.tensor(res_y, device=y.device) if isinstance(y, torch.Tensor) and res_y is not None else res_y
+        return x_out, y_out
+
+    def estimate_gradient(self, x: np.ndarray, grad: np.ndarray) -> np.ndarray:
+        return grad
+
+
+class PyTorchFeatureSqueezing(PreprocessorPyTorch):
+    """PyTorch wrapper for ART FeatureSqueezing with Straight-Through Estimator autograd support."""
+    def __init__(self, bit_depth: int = 5, clip_values: Tuple[float, float] = (0.0, 1.0)):
+        super().__init__(device_type="gpu" if torch.cuda.is_available() else "cpu", is_fitted=True, apply_fit=False, apply_predict=True)
+        self.squeezer = FeatureSqueezing(clip_values=clip_values, bit_depth=bit_depth)
+
+    def forward(self, x: torch.Tensor, y: Optional[Any] = None) -> Tuple[torch.Tensor, Optional[Any]]:
+        res_x = x.detach().cpu().numpy()
+        res_y = y.detach().cpu().numpy() if isinstance(y, torch.Tensor) else y
+        res_x, res_y = self.squeezer(res_x, res_y)
+        x_out_detached = torch.tensor(res_x.astype(np.float32), device=x.device)
+        x_out = x + (x_out_detached - x).detach()
+        y_out = torch.tensor(res_y, device=y.device) if isinstance(y, torch.Tensor) and res_y is not None else res_y
+        return x_out, y_out
+
+    def estimate_gradient(self, x: np.ndarray, grad: np.ndarray) -> np.ndarray:
+        return grad
+
+
+class CompositePreprocessor(list, PreprocessorPyTorch):
     """Chains spatial median smoothing and bit-depth feature squeezing in a single ART Preprocessor object."""
     def __init__(
         self,
@@ -24,9 +63,27 @@ class CompositePreprocessor(Preprocessor):
         bit_depth: int = 5,
         clip_values: Tuple[float, float] = (0.0, 1.0)
     ):
-        super().__init__(is_fitted=True, apply_fit=False, apply_predict=True, clip_values=clip_values)
+        list.__init__(self)
+        PreprocessorPyTorch.__init__(self, device_type="gpu" if torch.cuda.is_available() else "cpu", is_fitted=True, apply_fit=False, apply_predict=True)
+        self.clip_values = clip_values
         self.smoother = SpatialSmoothing(window_size=window_size, channels_first=True, clip_values=clip_values) if window_size > 1 else None
         self.squeezer = FeatureSqueezing(clip_values=clip_values, bit_depth=bit_depth) if bit_depth < 8 else None
+        if self.smoother is not None:
+            self.append(self.smoother)
+        if self.squeezer is not None:
+            self.append(self.squeezer)
+
+    def forward(self, x: torch.Tensor, y: Optional[Any] = None) -> Tuple[torch.Tensor, Optional[Any]]:
+        res_x = x.detach().cpu().numpy()
+        res_y = y.detach().cpu().numpy() if isinstance(y, torch.Tensor) else y
+        if self.smoother is not None:
+            res_x, res_y = self.smoother(res_x, res_y)
+        if self.squeezer is not None:
+            res_x, res_y = self.squeezer(res_x, res_y)
+        x_out_detached = torch.tensor(res_x.astype(np.float32), device=x.device)
+        x_out = x + (x_out_detached - x).detach()
+        y_out = torch.tensor(res_y, device=y.device) if isinstance(y, torch.Tensor) and res_y is not None else res_y
+        return x_out, y_out
 
     def __call__(self, x: np.ndarray, y: Optional[np.ndarray] = None) -> Tuple[np.ndarray, Optional[np.ndarray]]:
         res_x, res_y = x, y
@@ -34,7 +91,7 @@ class CompositePreprocessor(Preprocessor):
             res_x, res_y = self.smoother(res_x, res_y)
         if self.squeezer is not None:
             res_x, res_y = self.squeezer(res_x, res_y)
-        return res_x, res_y
+        return res_x.astype(x.dtype), res_y
 
     def estimate_gradient(self, x: np.ndarray, grad: np.ndarray) -> np.ndarray:
         return grad
@@ -74,7 +131,11 @@ def get_feature_squeezed_classifier(
     device_type = "gpu" if device.type == "cuda" else "cpu"
 
     # Initialize composite preprocessing defense
-    preprocessors = [CompositePreprocessor(window_size=window_size, bit_depth=bit_depth, clip_values=clip_values)]
+    preprocessors = []
+    if window_size > 1:
+        preprocessors.append(PyTorchSpatialSmoothing(window_size=window_size, clip_values=clip_values))
+    if bit_depth < 8:
+        preprocessors.append(PyTorchFeatureSqueezing(bit_depth=bit_depth, clip_values=clip_values))
 
     logger.info(
         f"Initialized Feature Squeezing classifier with bit_depth={bit_depth} and window_size={window_size}."

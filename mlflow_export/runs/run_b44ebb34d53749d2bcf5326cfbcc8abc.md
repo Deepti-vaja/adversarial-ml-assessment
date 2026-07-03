@@ -1,0 +1,28 @@
+# Experiment Run: Adversarial_Training_PGD (AML-DEFENSE)
+
+**Run ID**: b44ebb34d53749d2bcf5326cfbcc8abc  
+**Experiment**: AML-DEFENSE  
+**Status**: FINISHED  
+
+## Run Parameters
+
+- **batch_size**: 4
+- **defense_type**: AdversarialTraining
+- **epochs**: 1
+- **learning_rate**: 0.001
+- **pgd_eps**: 0.05
+- **pgd_eps_step**: 0.02
+- **pgd_max_iter**: 2
+
+## Run Metrics
+
+- **clean_val_acc**: 0.375000
+- **robust_val_acc**: 0.375000
+- **training_overhead_hours**: 0.000126
+
+## Run Tags
+
+- **mlflow.runName**: Adversarial_Training_PGD
+- **mlflow.source.name**: python.exe -m unittest
+- **mlflow.source.type**: LOCAL
+- **mlflow.user**: dell

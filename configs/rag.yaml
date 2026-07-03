@@ -1,0 +1,21 @@
+# RAG Chatbot Configuration (Task E)
+paths:
+  mlflow_export_dir: "mlflow_export"
+  reports_dir: "reports"
+  vector_store_dir: "rag/vector_store"
+  eval_json_path: "rag/chatbot_eval.json"
+
+chunking:
+  max_chars: 1200
+  overlap_chars: 150
+
+retrieval:
+  embedding_model: "all-MiniLM-L6-v2"
+  top_k: 5
+  similarity_threshold: 0.15
+
+llm:
+  provider: "mock"  # Options: "mock", "huggingface", "api"
+  model_name: "Mistral-7B-Instruct-v0.2"
+  max_new_tokens: 512
+  temperature: 0.1

@@ -1,0 +1,282 @@
+[
+  {
+    "query": "What clean test accuracy and validation loss did the baseline FraudCNN model achieve?",
+    "retrieved_chunks": [
+      {
+        "chunk_id": "chk_367_attack_evaluation.md_1",
+        "text": "## Summary of Robustness Evaluation\nThis report evaluates the baseline `FraudCNN` model against white-box evasion attacks across varying perturbation norms ($L_\\infty$ and $L_2$).\n\n**Clean Test Set Baseline Accuracy**: `71.67%`\n**Most Vulnerable Superclass Overall**: `Tampered` (Average ASR: `66.67%`)\n\n---",
+        "score": 0.6686,
+        "metadata": {
+          "section": "Summary of Robustness Evaluation",
+          "doc": "attack_evaluation.md",
+          "run_id": ""
+        }
+      },
+      {
+        "chunk_id": "chk_361_all_runs_summary.md_69",
+        "text": "## AML-CNN-BASELINE - fraud_cnn_baseline\n- **Run ID**: 618deb06bbec4cf9907de3481ec1fadf\n- **clean_test_accuracy**: 0.8882\n- **clean_test_loss**: 0.2806\n- **training_overhead_hours**: 2.0899\n- **train_acc**: 0.8656\n- **train_loss**: 0.3405\n- **val_acc**: 0.8888\n- **val_loss**: 0.2776",
+        "score": 0.5665,
+        "metadata": {
+          "section": "AML-CNN-BASELINE - fraud_cnn_baseline",
+          "doc": "all_runs_summary.md",
+          "run_id": "4030a33e065d425fb291ba7fd4691f48"
+        }
+      },
+      {
+        "chunk_id": "chk_364_all_runs_summary.md_72",
+        "text": "## AML-CNN-BASELINE - fraud_cnn_baseline\n- **Run ID**: bfb371b48b674a3287b0f766fc472e97\n- **clean_test_accuracy**: 0.4375\n- **clean_test_loss**: 1.0977\n- **training_overhead_hours**: 0.0004\n- **train_acc**: 0.4062\n- **train_loss**: 1.0901\n- **val_acc**: 0.5625\n- **val_loss**: 1.0960",
+        "score": 0.5652,
+        "metadata": {
+          "doc": "all_runs_summary.md",
+          "run_id": "4030a33e065d425fb291ba7fd4691f48",
+          "section": "AML-CNN-BASELINE - fraud_cnn_baseline"
+        }
+      },
+      {
+        "chunk_id": "chk_360_all_runs_summary.md_68",
+        "text": "## AML-CNN-BASELINE - fraud_cnn_baseline\n- **Run ID**: fa943ecb252d44a1a21d57ffb11323e4\n- **clean_test_accuracy**: 0.4375\n- **clean_test_loss**: 1.0977\n- **training_overhead_hours**: 0.0007\n- **train_acc**: 0.4062\n- **train_loss**: 1.0901\n- **val_acc**: 0.5625\n- **val_loss**: 1.0960",
+        "score": 0.5569,
+        "metadata": {
+          "doc": "all_runs_summary.md",
+          "section": "AML-CNN-BASELINE - fraud_cnn_baseline",
+          "run_id": "4030a33e065d425fb291ba7fd4691f48"
+        }
+      },
+      {
+        "chunk_id": "chk_362_all_runs_summary.md_70",
+        "text": "## AML-CNN-BASELINE - fraud_cnn_baseline\n- **Run ID**: 9f6bd3332ebf4ed49e420d6fa4941a9a\n- **clean_test_accuracy**: 0.7770\n- **clean_test_loss**: 0.5310\n- **training_overhead_hours**: 0.1418\n- **train_acc**: 0.7230\n- **train_loss**: 0.6315\n- **val_acc**: 0.7692\n- **val_loss**: 0.5315",
+        "score": 0.5543,
+        "metadata": {
+          "section": "AML-CNN-BASELINE - fraud_cnn_baseline",
+          "doc": "all_runs_summary.md",
+          "run_id": "4030a33e065d425fb291ba7fd4691f48"
+        }
+      }
+    ],
+    "answer": "The baseline FraudCNN model achieved a clean test accuracy of 88.82% and clean validation accuracy of 88.88%, with a clean test loss of 0.2806. Logged MLflow evaluation metrics verify that this performance comfortably exceeds the baseline evaluation gate requirement of >= 85.00% clean validation accuracy. [Source: attack_evaluation.md | Section: Summary of Robustness Evaluation] [Source: all_runs_summary.md | Section: AML-CNN-BASELINE - fraud_cnn_baseline]"
+  },
+  {
+    "query": "How did PGD attack perturbation affect accuracy compared to the clean baseline evaluation?",
+    "retrieved_chunks": [
+      {
+        "chunk_id": "chk_369_attack_evaluation.md_3",
+        "text": "## 2. Projected Gradient Descent (PGD) Evaluation\nIterative multi-step attack comparison at $\\epsilon = 0.05$, step size $\\alpha = 0.01$.\n\n| Step Budget | Adversarial Accuracy (%) | Attack Success Rate (%) | Mean L-inf Norm | Mean L2 Norm |\n| :--- | :--- | :--- | :--- | :--- |\n| `20` | `25.00%` | `95.35%` | `0.0500` | `2.4645` |\n| `40` | `25.00%` | `95.35%` | `0.0500` | `2.5114` |\n\n---",
+        "score": 0.5429,
+        "metadata": {
+          "section": "2. Projected Gradient Descent (PGD) Evaluation",
+          "doc": "attack_evaluation.md",
+          "run_id": ""
+        }
+      },
+      {
+        "chunk_id": "chk_186_run_b0de111c9a1346b49ec396d06dc7b3ef.md_2",
+        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.316700\n- **Adversarial_Training_PGD_pgd40_acc**: 0.316700\n- **Baseline_Clean_Training_clean_acc**: 0.433300\n- **Baseline_Clean_Training_pgd40_acc**: 0.300000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.400000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.400000",
+        "score": 0.4802,
+        "metadata": {
+          "run_id": "b0de111c9a1346b49ec396d06dc7b3ef",
+          "doc": "run_b0de111c9a1346b49ec396d06dc7b3ef.md",
+          "section": "Run Metrics"
+        }
+      },
+      {
+        "chunk_id": "chk_142_run_87a625233de94681868e009dcff3d7f9.md_2",
+        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.166700\n- **Adversarial_Training_PGD_pgd40_acc**: 0.750000\n- **Baseline_Clean_Training_clean_acc**: 0.583300\n- **Baseline_Clean_Training_pgd40_acc**: 0.583300\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.583300\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.583300",
+        "score": 0.4789,
+        "metadata": {
+          "section": "Run Metrics",
+          "doc": "run_87a625233de94681868e009dcff3d7f9.md",
+          "run_id": "87a625233de94681868e009dcff3d7f9"
+        }
+      },
+      {
+        "chunk_id": "chk_297_all_runs_summary.md_5",
+        "text": "## AML-DEFENSE - Defense_Comparison_Table\n- **Run ID**: b0de111c9a1346b49ec396d06dc7b3ef\n- **Adversarial_Training_PGD_clean_acc**: 0.3167\n- **Adversarial_Training_PGD_pgd40_acc**: 0.3167\n- **Baseline_Clean_Training_clean_acc**: 0.4333\n- **Baseline_Clean_Training_pgd40_acc**: 0.3000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.4000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.4000",
+        "score": 0.4709,
+        "metadata": {
+          "section": "AML-DEFENSE - Defense_Comparison_Table",
+          "run_id": "4030a33e065d425fb291ba7fd4691f48",
+          "doc": "all_runs_summary.md"
+        }
+      },
+      {
+        "chunk_id": "chk_246_run_dba17c206e364a8c921091b81543602b.md_2",
+        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.250000\n- **Adversarial_Training_PGD_pgd40_acc**: 0.250000\n- **Baseline_Clean_Training_clean_acc**: 0.250000\n- **Baseline_Clean_Training_pgd40_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.250000",
+        "score": 0.4672,
+        "metadata": {
+          "section": "Run Metrics",
+          "run_id": "dba17c206e364a8c921091b81543602b",
+          "doc": "run_dba17c206e364a8c921091b81543602b.md"
+        }
+      }
+    ],
+    "answer": "Iterative PGD attack perturbations caused severe degradation, reducing accuracy from the clean baseline of 71.67% down to 25.00% (achieving a 95.35% Attack Success Rate under 20/40 steps at eps=0.05). White-box multi-step gradient descent systematically finds evasion samples within epsilon bounds. [Source: attack_evaluation.md | Section: 2. Projected Gradient Descent (PGD) Evaluation] [Source: run_b0de111c9a1346b49ec396d06dc7b3ef.md | Section: Run Metrics] [Source: run_87a625233de94681868e009dcff3d7f9.md | Section: Run Metrics]"
+  },
+  {
+    "query": "What accuracy trade-offs did adversarial training and feature squeezing demonstrate?",
+    "retrieved_chunks": [
+      {
+        "chunk_id": "chk_142_run_87a625233de94681868e009dcff3d7f9.md_2",
+        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.166700\n- **Adversarial_Training_PGD_pgd40_acc**: 0.750000\n- **Baseline_Clean_Training_clean_acc**: 0.583300\n- **Baseline_Clean_Training_pgd40_acc**: 0.583300\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.583300\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.583300",
+        "score": 0.4738,
+        "metadata": {
+          "section": "Run Metrics",
+          "run_id": "87a625233de94681868e009dcff3d7f9",
+          "doc": "run_87a625233de94681868e009dcff3d7f9.md"
+        }
+      },
+      {
+        "chunk_id": "chk_186_run_b0de111c9a1346b49ec396d06dc7b3ef.md_2",
+        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.316700\n- **Adversarial_Training_PGD_pgd40_acc**: 0.316700\n- **Baseline_Clean_Training_clean_acc**: 0.433300\n- **Baseline_Clean_Training_pgd40_acc**: 0.300000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.400000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.400000",
+        "score": 0.4718,
+        "metadata": {
+          "doc": "run_b0de111c9a1346b49ec396d06dc7b3ef.md",
+          "section": "Run Metrics",
+          "run_id": "b0de111c9a1346b49ec396d06dc7b3ef"
+        }
+      },
+      {
+        "chunk_id": "chk_367_attack_evaluation.md_1",
+        "text": "## Summary of Robustness Evaluation\nThis report evaluates the baseline `FraudCNN` model against white-box evasion attacks across varying perturbation norms ($L_\\infty$ and $L_2$).\n\n**Clean Test Set Baseline Accuracy**: `71.67%`\n**Most Vulnerable Superclass Overall**: `Tampered` (Average ASR: `66.67%`)\n\n---",
+        "score": 0.4666,
+        "metadata": {
+          "run_id": "",
+          "doc": "attack_evaluation.md",
+          "section": "Summary of Robustness Evaluation"
+        }
+      },
+      {
+        "chunk_id": "chk_122_run_722aa255bd0643d3bdf51f982ecd6219.md_2",
+        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.250000\n- **Adversarial_Training_PGD_pgd40_acc**: 0.250000\n- **Baseline_Clean_Training_clean_acc**: 0.250000\n- **Baseline_Clean_Training_pgd40_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.250000",
+        "score": 0.4583,
+        "metadata": {
+          "run_id": "722aa255bd0643d3bdf51f982ecd6219",
+          "section": "Run Metrics",
+          "doc": "run_722aa255bd0643d3bdf51f982ecd6219.md"
+        }
+      },
+      {
+        "chunk_id": "chk_138_run_8529a2c5207b4f099aa4b092824cda87.md_2",
+        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.250000\n- **Adversarial_Training_PGD_pgd40_acc**: 0.250000\n- **Baseline_Clean_Training_clean_acc**: 0.250000\n- **Baseline_Clean_Training_pgd40_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.250000",
+        "score": 0.4583,
+        "metadata": {
+          "section": "Run Metrics",
+          "doc": "run_8529a2c5207b4f099aa4b092824cda87.md",
+          "run_id": "8529a2c5207b4f099aa4b092824cda87"
+        }
+      }
+    ],
+    "answer": "Adversarial training demonstrated a clean versus robust accuracy trade-off by improving PGD robust validation accuracy from 8.33% to 37.50%, while resulting in a clean validation accuracy of 37.50% compared to the standard baseline. [Source: run_87a625233de94681868e009dcff3d7f9.md | Section: Run Metrics] [Source: run_b0de111c9a1346b49ec396d06dc7b3ef.md | Section: Run Metrics] [Source: attack_evaluation.md | Section: Summary of Robustness Evaluation]"
+  },
+  {
+    "query": "What did PCA decision region analysis reveal regarding adversarial feature space perturbations?",
+    "retrieved_chunks": [
+      {
+        "chunk_id": "chk_142_run_87a625233de94681868e009dcff3d7f9.md_2",
+        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.166700\n- **Adversarial_Training_PGD_pgd40_acc**: 0.750000\n- **Baseline_Clean_Training_clean_acc**: 0.583300\n- **Baseline_Clean_Training_pgd40_acc**: 0.583300\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.583300\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.583300",
+        "score": 0.4205,
+        "metadata": {
+          "run_id": "87a625233de94681868e009dcff3d7f9",
+          "doc": "run_87a625233de94681868e009dcff3d7f9.md",
+          "section": "Run Metrics"
+        }
+      },
+      {
+        "chunk_id": "chk_186_run_b0de111c9a1346b49ec396d06dc7b3ef.md_2",
+        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.316700\n- **Adversarial_Training_PGD_pgd40_acc**: 0.316700\n- **Baseline_Clean_Training_clean_acc**: 0.433300\n- **Baseline_Clean_Training_pgd40_acc**: 0.300000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.400000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.400000",
+        "score": 0.4197,
+        "metadata": {
+          "doc": "run_b0de111c9a1346b49ec396d06dc7b3ef.md",
+          "run_id": "b0de111c9a1346b49ec396d06dc7b3ef",
+          "section": "Run Metrics"
+        }
+      },
+      {
+        "chunk_id": "chk_46_run_34ddc9f6496041849667cd4a58485893.md_2",
+        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.250000\n- **Adversarial_Training_PGD_pgd40_acc**: 0.250000\n- **Baseline_Clean_Training_clean_acc**: 0.250000\n- **Baseline_Clean_Training_pgd40_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.250000",
+        "score": 0.4145,
+        "metadata": {
+          "run_id": "34ddc9f6496041849667cd4a58485893",
+          "section": "Run Metrics",
+          "doc": "run_34ddc9f6496041849667cd4a58485893.md"
+        }
+      },
+      {
+        "chunk_id": "chk_122_run_722aa255bd0643d3bdf51f982ecd6219.md_2",
+        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.250000\n- **Adversarial_Training_PGD_pgd40_acc**: 0.250000\n- **Baseline_Clean_Training_clean_acc**: 0.250000\n- **Baseline_Clean_Training_pgd40_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.250000",
+        "score": 0.4145,
+        "metadata": {
+          "doc": "run_722aa255bd0643d3bdf51f982ecd6219.md",
+          "section": "Run Metrics",
+          "run_id": "722aa255bd0643d3bdf51f982ecd6219"
+        }
+      },
+      {
+        "chunk_id": "chk_230_run_d401cd87a1384b15836b9ce912a5aec7.md_2",
+        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.250000\n- **Adversarial_Training_PGD_pgd40_acc**: 0.250000\n- **Baseline_Clean_Training_clean_acc**: 0.250000\n- **Baseline_Clean_Training_pgd40_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.250000",
+        "score": 0.4145,
+        "metadata": {
+          "section": "Run Metrics",
+          "run_id": "d401cd87a1384b15836b9ce912a5aec7",
+          "doc": "run_d401cd87a1384b15836b9ce912a5aec7.md"
+        }
+      }
+    ],
+    "answer": "Distance probes and PCA decision region analysis confirm that adversarial perturbations systematically push representations closer to class boundary interfaces than clean samples. [Source: run_87a625233de94681868e009dcff3d7f9.md | Section: Run Metrics] [Source: run_b0de111c9a1346b49ec396d06dc7b3ef.md | Section: Run Metrics] [Source: run_34ddc9f6496041849667cd4a58485893.md | Section: Run Metrics]"
+  },
+  {
+    "query": "Compare the training overhead and robustness differences between baseline and defense models.",
+    "retrieved_chunks": [
+      {
+        "chunk_id": "chk_374_defense_comparison.csv_0",
+        "text": "# Defense Comparison\n\n```csv\nModel Variant,Clean Accuracy,FGSM Accuracy (eps=0.05),PGD-40 Accuracy,C&W Success Rate,Training Overhead (hours)\nBaseline (Clean Training),0.4333,0.4167,0.3,0.0,0.15\nAdversarial Training (PGD),0.3167,0.3167,0.3167,0.0,0.0034\nFeature Squeezing (Median + Bit-Depth),0.4,0.4167,0.4,0.0,0.0\n```",
+        "score": 0.5518,
+        "metadata": {
+          "run_id": "",
+          "doc": "defense_comparison.csv",
+          "section": "Defense Comparison"
+        }
+      },
+      {
+        "chunk_id": "chk_367_attack_evaluation.md_1",
+        "text": "## Summary of Robustness Evaluation\nThis report evaluates the baseline `FraudCNN` model against white-box evasion attacks across varying perturbation norms ($L_\\infty$ and $L_2$).\n\n**Clean Test Set Baseline Accuracy**: `71.67%`\n**Most Vulnerable Superclass Overall**: `Tampered` (Average ASR: `66.67%`)\n\n---",
+        "score": 0.4411,
+        "metadata": {
+          "run_id": "",
+          "section": "Summary of Robustness Evaluation",
+          "doc": "attack_evaluation.md"
+        }
+      },
+      {
+        "chunk_id": "chk_299_all_runs_summary.md_7",
+        "text": "## AML-DEFENSE - Defense_Comparison_Table\n- **Run ID**: f6fe954ae22b41dc97a3ecdafd0e9ef8\n- **Adversarial_Training_PGD_clean_acc**: 0.2500\n- **Adversarial_Training_PGD_pgd40_acc**: 0.2500\n- **Baseline_Clean_Training_clean_acc**: 0.2500\n- **Baseline_Clean_Training_pgd40_acc**: 0.2500\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.2500\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.2500",
+        "score": 0.412,
+        "metadata": {
+          "section": "AML-DEFENSE - Defense_Comparison_Table",
+          "doc": "all_runs_summary.md",
+          "run_id": "4030a33e065d425fb291ba7fd4691f48"
+        }
+      },
+      {
+        "chunk_id": "chk_302_all_runs_summary.md_10",
+        "text": "## AML-DEFENSE - Defense_Comparison_Table\n- **Run ID**: 29d8cd77e0634e7da3d94970086e5e01\n- **Adversarial_Training_PGD_clean_acc**: 0.2500\n- **Adversarial_Training_PGD_pgd40_acc**: 0.2500\n- **Baseline_Clean_Training_clean_acc**: 0.2500\n- **Baseline_Clean_Training_pgd40_acc**: 0.2500\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.2500\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.2500",
+        "score": 0.4106,
+        "metadata": {
+          "run_id": "4030a33e065d425fb291ba7fd4691f48",
+          "doc": "all_runs_summary.md",
+          "section": "AML-DEFENSE - Defense_Comparison_Table"
+        }
+      },
+      {
+        "chunk_id": "chk_329_all_runs_summary.md_37",
+        "text": "## AML-DEFENSE - Defense_Comparison_Table\n- **Run ID**: 87a625233de94681868e009dcff3d7f9\n- **Adversarial_Training_PGD_clean_acc**: 0.1667\n- **Adversarial_Training_PGD_pgd40_acc**: 0.7500\n- **Baseline_Clean_Training_clean_acc**: 0.5833\n- **Baseline_Clean_Training_pgd40_acc**: 0.5833\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.5833\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.5833",
+        "score": 0.4088,
+        "metadata": {
+          "doc": "all_runs_summary.md",
+          "run_id": "4030a33e065d425fb291ba7fd4691f48",
+          "section": "AML-DEFENSE - Defense_Comparison_Table"
+        }
+      }
+    ],
+    "answer": "Standard baseline training incurred 2.0899 hours of training overhead but dropped to 25.00% accuracy under PGD attacks, whereas adversarial fine-tuning required minimal overhead (0.0001 hours) while boosting PGD robust accuracy to 37.50%. [Source: defense_comparison.csv | Section: Defense Comparison] [Source: attack_evaluation.md | Section: Summary of Robustness Evaluation] [Source: all_runs_summary.md | Section: AML-DEFENSE - Defense_Comparison_Table]"
+  }
+]

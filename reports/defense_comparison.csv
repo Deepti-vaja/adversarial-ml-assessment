@@ -1,0 +1,4 @@
+Model Variant,Clean Accuracy,FGSM Accuracy (eps=0.05),PGD-40 Accuracy,C&W Success Rate,Training Overhead (hours)
+Baseline (Clean Training),0.4333,0.4167,0.3,0.0,0.15
+Adversarial Training (PGD),0.3167,0.3167,0.3167,0.0,0.0034
+Feature Squeezing (Median + Bit-Depth),0.4,0.4167,0.4,0.0,0.0
