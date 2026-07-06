@@ -31,7 +31,7 @@
 16. [Gradio Interactive Web UI](#16-gradio-interactive-web-ui)
 17. [Empirical Results & Defense Comparison](#17-empirical-results--defense-comparison)
 18. [Testing](#18-testing)
-19. [Future Improvements](#19-future-improvements)
+
 
 ---
 
@@ -593,11 +593,3 @@ python -m pytest
 
 ---
 
-## 19. Future Improvements
-
-### 🚀 Future Engineering Roadmap
-1. **TRADES Regularization:** Implement Trade-off-inspired Adversarial Defense via Surrogate-loss to maintain $\ge 75\%$ clean accuracy during adversarial fine-tuning.
-2. **Physical Patch Attacks (Bonus B1):** Simulate barcode or watermark occlusion stickers over document layouts.
-3. **Randomized Smoothing (Bonus D2):** Provide mathematically certified L2 robustness bounds at radius $r=0.25$.
-4. **RVL-CDIP Upgrade:** Scale proxy dataset to full-resolution grayscale document images (invoices, memos, letters).
-5. **Live MLflow Polling:** Upgrade RAG retriever to index live streaming experiment databases in real time.
