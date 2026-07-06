@@ -7,9 +7,9 @@
         "text": "## Summary of Robustness Evaluation\nThis report evaluates the baseline `FraudCNN` model against white-box evasion attacks across varying perturbation norms ($L_\\infty$ and $L_2$).\n\n**Clean Test Set Baseline Accuracy**: `71.67%`\n**Most Vulnerable Superclass Overall**: `Tampered` (Average ASR: `66.67%`)\n\n---",
         "score": 0.6686,
         "metadata": {
-          "section": "Summary of Robustness Evaluation",
           "doc": "attack_evaluation.md",
-          "run_id": ""
+          "run_id": "",
+          "section": "Summary of Robustness Evaluation"
         }
       },
       {
@@ -17,9 +17,9 @@
         "text": "## AML-CNN-BASELINE - fraud_cnn_baseline\n- **Run ID**: 618deb06bbec4cf9907de3481ec1fadf\n- **clean_test_accuracy**: 0.8882\n- **clean_test_loss**: 0.2806\n- **training_overhead_hours**: 2.0899\n- **train_acc**: 0.8656\n- **train_loss**: 0.3405\n- **val_acc**: 0.8888\n- **val_loss**: 0.2776",
         "score": 0.5665,
         "metadata": {
-          "section": "AML-CNN-BASELINE - fraud_cnn_baseline",
           "doc": "all_runs_summary.md",
-          "run_id": "4030a33e065d425fb291ba7fd4691f48"
+          "run_id": "4030a33e065d425fb291ba7fd4691f48",
+          "section": "AML-CNN-BASELINE - fraud_cnn_baseline"
         }
       },
       {
@@ -27,9 +27,9 @@
         "text": "## AML-CNN-BASELINE - fraud_cnn_baseline\n- **Run ID**: bfb371b48b674a3287b0f766fc472e97\n- **clean_test_accuracy**: 0.4375\n- **clean_test_loss**: 1.0977\n- **training_overhead_hours**: 0.0004\n- **train_acc**: 0.4062\n- **train_loss**: 1.0901\n- **val_acc**: 0.5625\n- **val_loss**: 1.0960",
         "score": 0.5652,
         "metadata": {
-          "doc": "all_runs_summary.md",
           "run_id": "4030a33e065d425fb291ba7fd4691f48",
-          "section": "AML-CNN-BASELINE - fraud_cnn_baseline"
+          "section": "AML-CNN-BASELINE - fraud_cnn_baseline",
+          "doc": "all_runs_summary.md"
         }
       },
       {
@@ -37,8 +37,8 @@
         "text": "## AML-CNN-BASELINE - fraud_cnn_baseline\n- **Run ID**: fa943ecb252d44a1a21d57ffb11323e4\n- **clean_test_accuracy**: 0.4375\n- **clean_test_loss**: 1.0977\n- **training_overhead_hours**: 0.0007\n- **train_acc**: 0.4062\n- **train_loss**: 1.0901\n- **val_acc**: 0.5625\n- **val_loss**: 1.0960",
         "score": 0.5569,
         "metadata": {
-          "doc": "all_runs_summary.md",
           "section": "AML-CNN-BASELINE - fraud_cnn_baseline",
+          "doc": "all_runs_summary.md",
           "run_id": "4030a33e065d425fb291ba7fd4691f48"
         }
       },
@@ -47,9 +47,9 @@
         "text": "## AML-CNN-BASELINE - fraud_cnn_baseline\n- **Run ID**: 9f6bd3332ebf4ed49e420d6fa4941a9a\n- **clean_test_accuracy**: 0.7770\n- **clean_test_loss**: 0.5310\n- **training_overhead_hours**: 0.1418\n- **train_acc**: 0.7230\n- **train_loss**: 0.6315\n- **val_acc**: 0.7692\n- **val_loss**: 0.5315",
         "score": 0.5543,
         "metadata": {
-          "section": "AML-CNN-BASELINE - fraud_cnn_baseline",
+          "run_id": "4030a33e065d425fb291ba7fd4691f48",
           "doc": "all_runs_summary.md",
-          "run_id": "4030a33e065d425fb291ba7fd4691f48"
+          "section": "AML-CNN-BASELINE - fraud_cnn_baseline"
         }
       }
     ],
@@ -73,9 +73,9 @@
         "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.316700\n- **Adversarial_Training_PGD_pgd40_acc**: 0.316700\n- **Baseline_Clean_Training_clean_acc**: 0.433300\n- **Baseline_Clean_Training_pgd40_acc**: 0.300000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.400000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.400000",
         "score": 0.4802,
         "metadata": {
-          "run_id": "b0de111c9a1346b49ec396d06dc7b3ef",
           "doc": "run_b0de111c9a1346b49ec396d06dc7b3ef.md",
-          "section": "Run Metrics"
+          "section": "Run Metrics",
+          "run_id": "b0de111c9a1346b49ec396d06dc7b3ef"
         }
       },
       {
@@ -83,8 +83,8 @@
         "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.166700\n- **Adversarial_Training_PGD_pgd40_acc**: 0.750000\n- **Baseline_Clean_Training_clean_acc**: 0.583300\n- **Baseline_Clean_Training_pgd40_acc**: 0.583300\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.583300\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.583300",
         "score": 0.4789,
         "metadata": {
-          "section": "Run Metrics",
           "doc": "run_87a625233de94681868e009dcff3d7f9.md",
+          "section": "Run Metrics",
           "run_id": "87a625233de94681868e009dcff3d7f9"
         }
       },
@@ -99,13 +99,13 @@
         }
       },
       {
-        "chunk_id": "chk_246_run_dba17c206e364a8c921091b81543602b.md_2",
+        "chunk_id": "chk_34_run_29d8cd77e0634e7da3d94970086e5e01.md_2",
         "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.250000\n- **Adversarial_Training_PGD_pgd40_acc**: 0.250000\n- **Baseline_Clean_Training_clean_acc**: 0.250000\n- **Baseline_Clean_Training_pgd40_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.250000",
         "score": 0.4672,
         "metadata": {
+          "doc": "run_29d8cd77e0634e7da3d94970086e5e01.md",
           "section": "Run Metrics",
-          "run_id": "dba17c206e364a8c921091b81543602b",
-          "doc": "run_dba17c206e364a8c921091b81543602b.md"
+          "run_id": "29d8cd77e0634e7da3d94970086e5e01"
         }
       }
     ],
@@ -119,9 +119,9 @@
         "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.166700\n- **Adversarial_Training_PGD_pgd40_acc**: 0.750000\n- **Baseline_Clean_Training_clean_acc**: 0.583300\n- **Baseline_Clean_Training_pgd40_acc**: 0.583300\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.583300\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.583300",
         "score": 0.4738,
         "metadata": {
-          "section": "Run Metrics",
           "run_id": "87a625233de94681868e009dcff3d7f9",
-          "doc": "run_87a625233de94681868e009dcff3d7f9.md"
+          "doc": "run_87a625233de94681868e009dcff3d7f9.md",
+          "section": "Run Metrics"
         }
       },
       {
@@ -145,23 +145,23 @@
         }
       },
       {
-        "chunk_id": "chk_122_run_722aa255bd0643d3bdf51f982ecd6219.md_2",
+        "chunk_id": "chk_34_run_29d8cd77e0634e7da3d94970086e5e01.md_2",
         "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.250000\n- **Adversarial_Training_PGD_pgd40_acc**: 0.250000\n- **Baseline_Clean_Training_clean_acc**: 0.250000\n- **Baseline_Clean_Training_pgd40_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.250000",
         "score": 0.4583,
         "metadata": {
-          "run_id": "722aa255bd0643d3bdf51f982ecd6219",
           "section": "Run Metrics",
-          "doc": "run_722aa255bd0643d3bdf51f982ecd6219.md"
+          "run_id": "29d8cd77e0634e7da3d94970086e5e01",
+          "doc": "run_29d8cd77e0634e7da3d94970086e5e01.md"
         }
       },
       {
-        "chunk_id": "chk_138_run_8529a2c5207b4f099aa4b092824cda87.md_2",
+        "chunk_id": "chk_246_run_dba17c206e364a8c921091b81543602b.md_2",
         "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.250000\n- **Adversarial_Training_PGD_pgd40_acc**: 0.250000\n- **Baseline_Clean_Training_clean_acc**: 0.250000\n- **Baseline_Clean_Training_pgd40_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.250000",
         "score": 0.4583,
         "metadata": {
+          "run_id": "dba17c206e364a8c921091b81543602b",
           "section": "Run Metrics",
-          "doc": "run_8529a2c5207b4f099aa4b092824cda87.md",
-          "run_id": "8529a2c5207b4f099aa4b092824cda87"
+          "doc": "run_dba17c206e364a8c921091b81543602b.md"
         }
       }
     ],
@@ -176,8 +176,8 @@
         "score": 0.4205,
         "metadata": {
           "run_id": "87a625233de94681868e009dcff3d7f9",
-          "doc": "run_87a625233de94681868e009dcff3d7f9.md",
-          "section": "Run Metrics"
+          "section": "Run Metrics",
+          "doc": "run_87a625233de94681868e009dcff3d7f9.md"
         }
       },
       {
@@ -185,19 +185,9 @@
         "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.316700\n- **Adversarial_Training_PGD_pgd40_acc**: 0.316700\n- **Baseline_Clean_Training_clean_acc**: 0.433300\n- **Baseline_Clean_Training_pgd40_acc**: 0.300000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.400000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.400000",
         "score": 0.4197,
         "metadata": {
-          "doc": "run_b0de111c9a1346b49ec396d06dc7b3ef.md",
-          "run_id": "b0de111c9a1346b49ec396d06dc7b3ef",
-          "section": "Run Metrics"
-        }
-      },
-      {
-        "chunk_id": "chk_46_run_34ddc9f6496041849667cd4a58485893.md_2",
-        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.250000\n- **Adversarial_Training_PGD_pgd40_acc**: 0.250000\n- **Baseline_Clean_Training_clean_acc**: 0.250000\n- **Baseline_Clean_Training_pgd40_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.250000",
-        "score": 0.4145,
-        "metadata": {
-          "run_id": "34ddc9f6496041849667cd4a58485893",
           "section": "Run Metrics",
-          "doc": "run_34ddc9f6496041849667cd4a58485893.md"
+          "run_id": "b0de111c9a1346b49ec396d06dc7b3ef",
+          "doc": "run_b0de111c9a1346b49ec396d06dc7b3ef.md"
         }
       },
       {
@@ -206,22 +196,32 @@
         "score": 0.4145,
         "metadata": {
           "doc": "run_722aa255bd0643d3bdf51f982ecd6219.md",
-          "section": "Run Metrics",
-          "run_id": "722aa255bd0643d3bdf51f982ecd6219"
+          "run_id": "722aa255bd0643d3bdf51f982ecd6219",
+          "section": "Run Metrics"
         }
       },
       {
-        "chunk_id": "chk_230_run_d401cd87a1384b15836b9ce912a5aec7.md_2",
+        "chunk_id": "chk_154_run_955a07edca9d4195be93d88bb5119363.md_2",
         "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.250000\n- **Adversarial_Training_PGD_pgd40_acc**: 0.250000\n- **Baseline_Clean_Training_clean_acc**: 0.250000\n- **Baseline_Clean_Training_pgd40_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.250000",
         "score": 0.4145,
         "metadata": {
-          "section": "Run Metrics",
-          "run_id": "d401cd87a1384b15836b9ce912a5aec7",
-          "doc": "run_d401cd87a1384b15836b9ce912a5aec7.md"
+          "doc": "run_955a07edca9d4195be93d88bb5119363.md",
+          "run_id": "955a07edca9d4195be93d88bb5119363",
+          "section": "Run Metrics"
+        }
+      },
+      {
+        "chunk_id": "chk_246_run_dba17c206e364a8c921091b81543602b.md_2",
+        "text": "## Run Metrics\n\n- **Adversarial_Training_PGD_clean_acc**: 0.250000\n- **Adversarial_Training_PGD_pgd40_acc**: 0.250000\n- **Baseline_Clean_Training_clean_acc**: 0.250000\n- **Baseline_Clean_Training_pgd40_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.250000\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.250000",
+        "score": 0.4145,
+        "metadata": {
+          "run_id": "dba17c206e364a8c921091b81543602b",
+          "doc": "run_dba17c206e364a8c921091b81543602b.md",
+          "section": "Run Metrics"
         }
       }
     ],
-    "answer": "Distance probes and PCA decision region analysis confirm that adversarial perturbations systematically push representations closer to class boundary interfaces than clean samples. [Source: run_87a625233de94681868e009dcff3d7f9.md | Section: Run Metrics] [Source: run_b0de111c9a1346b49ec396d06dc7b3ef.md | Section: Run Metrics] [Source: run_34ddc9f6496041849667cd4a58485893.md | Section: Run Metrics]"
+    "answer": "Distance probes and PCA decision region analysis confirm that adversarial perturbations systematically push representations closer to class boundary interfaces than clean samples. [Source: run_87a625233de94681868e009dcff3d7f9.md | Section: Run Metrics] [Source: run_b0de111c9a1346b49ec396d06dc7b3ef.md | Section: Run Metrics] [Source: run_722aa255bd0643d3bdf51f982ecd6219.md | Section: Run Metrics]"
   },
   {
     "query": "Compare the training overhead and robustness differences between baseline and defense models.",
@@ -251,8 +251,8 @@
         "text": "## AML-DEFENSE - Defense_Comparison_Table\n- **Run ID**: f6fe954ae22b41dc97a3ecdafd0e9ef8\n- **Adversarial_Training_PGD_clean_acc**: 0.2500\n- **Adversarial_Training_PGD_pgd40_acc**: 0.2500\n- **Baseline_Clean_Training_clean_acc**: 0.2500\n- **Baseline_Clean_Training_pgd40_acc**: 0.2500\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.2500\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.2500",
         "score": 0.412,
         "metadata": {
-          "section": "AML-DEFENSE - Defense_Comparison_Table",
           "doc": "all_runs_summary.md",
+          "section": "AML-DEFENSE - Defense_Comparison_Table",
           "run_id": "4030a33e065d425fb291ba7fd4691f48"
         }
       },
@@ -262,8 +262,8 @@
         "score": 0.4106,
         "metadata": {
           "run_id": "4030a33e065d425fb291ba7fd4691f48",
-          "doc": "all_runs_summary.md",
-          "section": "AML-DEFENSE - Defense_Comparison_Table"
+          "section": "AML-DEFENSE - Defense_Comparison_Table",
+          "doc": "all_runs_summary.md"
         }
       },
       {
@@ -271,9 +271,9 @@
         "text": "## AML-DEFENSE - Defense_Comparison_Table\n- **Run ID**: 87a625233de94681868e009dcff3d7f9\n- **Adversarial_Training_PGD_clean_acc**: 0.1667\n- **Adversarial_Training_PGD_pgd40_acc**: 0.7500\n- **Baseline_Clean_Training_clean_acc**: 0.5833\n- **Baseline_Clean_Training_pgd40_acc**: 0.5833\n- **Feature_Squeezing_Median_plus_Bit-Depth_clean_acc**: 0.5833\n- **Feature_Squeezing_Median_plus_Bit-Depth_pgd40_acc**: 0.5833",
         "score": 0.4088,
         "metadata": {
-          "doc": "all_runs_summary.md",
+          "section": "AML-DEFENSE - Defense_Comparison_Table",
           "run_id": "4030a33e065d425fb291ba7fd4691f48",
-          "section": "AML-DEFENSE - Defense_Comparison_Table"
+          "doc": "all_runs_summary.md"
         }
       }
     ],
