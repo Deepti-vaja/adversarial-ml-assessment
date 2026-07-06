@@ -36,9 +36,9 @@
 20. [Gradio Interactive Web UI](#27-gradio-interactive-web-ui)
 21. [Empirical Results & Defense Comparison](#28-empirical-results--defense-comparison)
 22. [Deliverables Checklist (Section 9 Compliance)](#29-deliverables-checklist-section-9-compliance)
-23. [Testing & Reproducibility](#31-testing--reproducibility)
-24. [Future Improvements](#33---future-improvements)
-25. [References](#35-references--)
+23. [Testing & Reproducibility](#30-testing--reproducibility)
+24. [Future Improvements](#31-future-improvements)
+25. [References](#32-references--)
 
 ---
 
@@ -678,26 +678,17 @@ We performed an exhaustive audit against **Section 9 of `technical-blueprint.md`
 
 ---
 
-## 31. Testing & Reproducibility
+## 30. Testing 
 
 ### 🧪 Automated Test Suite
 The repository includes an automated regression suite built with `pytest` verifying data mapping, chunking, model convergence, and ART wrapping:
 ```bash
 python -m pytest
 # Result: 31 passed in 14.2 seconds (100% success rate)
-```
-
-### 🔒 Deterministic Reproducibility
-Per `REPRODUCIBILITY.md`, all random states are strictly locked to `seed = 42` across `torch`, `torch.cuda`, `numpy`, and `random`. Target hardware: Single NVIDIA GPU ($\ge 8$ GB VRAM) or Google Colab T4. Estimated wall-clock execution time for full pipeline: **~2.1 hours**.
-
 ---
 
-## 33. Limitations & Future Improvements
+## 31. Future Improvements
 
-### ⚠️ Scope Limitations
-1. **Resolution Constraint:** 32x32 CIFAR-10 images serve as an academic proxy; real-world document fraud involves 4K/8K high-resolution scans.
-2. **$L_\infty$ Norm Bound:** Focuses on pixel-bound perturbations; real-world document fraud involves physical patch occlusion or typographical alteration.
-3. **Clean Accuracy Trade-off:** Standard PGD adversarial training drops clean accuracy to 37.50%, necessitating ensemble routing in production.
 
 ### 🚀 Future Engineering Roadmap
 1. **TRADES Regularization:** Implement Trade-off-inspired Adversarial Defense via Surrogate-loss to maintain $\ge 75\%$ clean accuracy during adversarial fine-tuning.
@@ -708,7 +699,7 @@ Per `REPRODUCIBILITY.md`, all random states are strictly locked to `seed = 42` a
 
 ---
 
-## 35. References & License
+## 32. References 
 
 ### 📚 Academic & Engineering References
 * Goodfellow, I. J., Shlens, J., & Szegedy, C. (2014). *Exploiting and Resisting Adversarial Examples.* ICLR.
@@ -716,6 +707,3 @@ Per `REPRODUCIBILITY.md`, all random states are strictly locked to `seed = 42` a
 * Carlini, N., & Wagner, D. (2017). *Towards Evaluating the Robustness of Neural Networks.* IEEE Symposium on Security and Privacy.
 * Xu, W., Evans, D., & Qi, Y. (2018). *Feature Squeezing: Detecting Adversarial Examples in Deep Neural Networks.* NDSS.
 * Nicolae, M.-I., et al. (2018). *Adversarial Robustness Toolbox v1.2.0.* CoRR.
-
-### 📄 License
-This project is licensed under the **MIT License**. See the `LICENSE` file for details. Designed and built for the AgentsArchitects.ai Engineering Assessment.
