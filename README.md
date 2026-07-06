@@ -267,7 +267,6 @@ adversarial-ml-assessment/
 ├── README.md                         # Definitive project documentation & executive guides
 ├── REPRODUCIBILITY.md                # Hardware specs, seeding tables, & runtime estimates
 ├── requirements.txt                  # Pinned operational library dependencies
-├── run_all.sh                        # Master automated end-to-end orchestration script
 ├── .gitignore                        # Standard Git exclusions (.venv, __pycache__, etc.)
 │
 ├── configs/                          # Centralized YAML experiment configurations
