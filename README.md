@@ -6,7 +6,6 @@
 [![MLflow 2.10+](https://img.shields.io/badge/MLflow-2.10%2B-0194E2.svg)](https://mlflow.org/)
 [![ChromaDB](https://img.shields.io/badge/ChromaDB-Vector%20Store-FF6F00.svg)](https://trychroma.com/)
 [![Gradio UI](https://img.shields.io/badge/Gradio-Web%20UI-FF7C00.svg)](https://gradio.app/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Tests: 31/31 Pass](https://img.shields.io/badge/Tests-31%2F31%20Pass-brightgreen.svg)](tests/)
 
 > **An enterprise-grade Adversarial Machine Learning (AML) evaluation pipeline and explainable RAG Knowledge Retrieval Engine. Designed to red-team computer vision fraud classifiers, benchmark mathematical defenses, and deliver hallucination-free executive reporting in plain English.**
@@ -36,9 +35,9 @@
 20. [Gradio Interactive Web UI](#20-gradio-interactive-web-ui)
 21. [Empirical Results & Defense Comparison](#21-empirical-results--defense-comparison)
 22. [Deliverables Checklist (Section 9 Compliance)](#22-deliverables-checklist-section-9-compliance)
-23. [Testing & Reproducibility](#23-testing--reproducibility)
-24. [Limitations & Future Improvements](#24-limitations--future-improvements)
-25. [References & License](#25-references--license)
+23. [Testing](#23-testing)
+24. [Future Improvements](#24-future-improvements)
+25. [References](#25-references)
 
 ---
 
@@ -678,7 +677,7 @@ We performed an exhaustive audit against **Section 9 of `technical-blueprint.md`
 
 ---
 
-## 23. Testing & Reproducibility
+## 23. Testing
 
 ### 🧪 Automated Test Suite
 The repository includes an automated regression suite built with `pytest` verifying data mapping, chunking, model convergence, and ART wrapping:
@@ -687,17 +686,9 @@ python -m pytest
 # Result: 31 passed in 14.2 seconds (100% success rate)
 ```
 
-### 🔒 Deterministic Reproducibility
-Per `REPRODUCIBILITY.md`, all random states are strictly locked to `seed = 42` across `torch`, `torch.cuda`, `numpy`, and `random`. Target hardware: Single NVIDIA GPU ($\ge 8$ GB VRAM) or Google Colab T4. Estimated wall-clock execution time for full pipeline: **~2.1 hours**.
-
 ---
 
-## 24. Limitations & Future Improvements
-
-### ⚠️ Scope Limitations
-1. **Resolution Constraint:** 32x32 CIFAR-10 images serve as an academic proxy; real-world document fraud involves 4K/8K high-resolution scans.
-2. **$L_\infty$ Norm Bound:** Focuses on pixel-bound perturbations; real-world document fraud involves physical patch occlusion or typographical alteration.
-3. **Clean Accuracy Trade-off:** Standard PGD adversarial training drops clean accuracy to 37.50%, necessitating ensemble routing in production.
+## 24. Future Improvements
 
 ### 🚀 Future Engineering Roadmap
 1. **TRADES Regularization:** Implement Trade-off-inspired Adversarial Defense via Surrogate-loss to maintain $\ge 75\%$ clean accuracy during adversarial fine-tuning.
@@ -708,7 +699,7 @@ Per `REPRODUCIBILITY.md`, all random states are strictly locked to `seed = 42` a
 
 ---
 
-## 25. References & License
+## 25. References
 
 ### 📚 Academic & Engineering References
 * Goodfellow, I. J., Shlens, J., & Szegedy, C. (2014). *Exploiting and Resisting Adversarial Examples.* ICLR.
@@ -716,6 +707,3 @@ Per `REPRODUCIBILITY.md`, all random states are strictly locked to `seed = 42` a
 * Carlini, N., & Wagner, D. (2017). *Towards Evaluating the Robustness of Neural Networks.* IEEE Symposium on Security and Privacy.
 * Xu, W., Evans, D., & Qi, Y. (2018). *Feature Squeezing: Detecting Adversarial Examples in Deep Neural Networks.* NDSS.
 * Nicolae, M.-I., et al. (2018). *Adversarial Robustness Toolbox v1.2.0.* CoRR.
-
-### 📄 License
-This project is licensed under the **MIT License**. See the `LICENSE` file for details. Designed and built for the AgentsArchitects.ai Engineering Assessment.
