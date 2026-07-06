@@ -24,20 +24,15 @@
 9. [Technology Stack](#9-technology-stack)
 10. [Installation & Prerequisites](#10-installation--prerequisites)
 11. [Quick Start & Detailed Run Instructions](#11-quick-start--detailed-run-instructions)
-12. [Expected Outputs & Project Workflow](#12-expected-outputs--project-workflow)
-13. [Model Architecture (`FraudCNN`)](#13-model-architecture-fraudcnn)
-14. [Adversarial Attacks & Vulnerability Analysis](#14-adversarial-attacks--vulnerability-analysis)
-15. [Defense Mechanisms & Benchmarking](#15-defense-mechanisms--benchmarking)
-16. [Explainability & Decision Boundary Analysis](#16-explainability--decision-boundary-analysis)
-17. [MLflow Experiment Tracking](#17-mlflow-experiment-tracking)
-18. [RAG Knowledge Retrieval System](#18-rag-knowledge-retrieval-system)
-19. [CLI Demonstration & Executive Translation Guide](#19-cli-demonstration--executive-translation-guide)
-20. [Gradio Interactive Web UI](#20-gradio-interactive-web-ui)
-21. [Empirical Results & Defense Comparison](#21-empirical-results--defense-comparison)
-22. [Deliverables Checklist (Section 9 Compliance)](#22-deliverables-checklist-section-9-compliance)
-23. [Testing](#23-testing)
-24. [Future Improvements](#24-future-improvements)
-25. [References](#25-references)
+12. [Adversarial Attacks & Vulnerability Analysis](#12-adversarial-attacks--vulnerability-analysis)
+13. [Defense Mechanisms & Benchmarking](#13-defense-mechanisms--benchmarking)
+14. [RAG Knowledge Retrieval System](#14-rag-knowledge-retrieval-system)
+15. [CLI Demonstration & Executive Translation Guide](#15-cli-demonstration--executive-translation-guide)
+16. [Gradio Interactive Web UI](#16-gradio-interactive-web-ui)
+17. [Empirical Results & Defense Comparison](#17-empirical-results--defense-comparison)
+18. [Testing](#18-testing)
+19. [Future Improvements](#19-future-improvements)
+20. [References](#20-references)
 
 ---
 
@@ -333,6 +328,7 @@ adversarial-ml-assessment/
 │   ├── attack_evaluation.md          # Exhaustive markdown attack findings report
 │   ├── defense_comparison.csv        # 6-column defense benchmarking table
 │   ├── summary.pdf                   # 1-page executive briefing PDF deliverable
+│   ├── gradio_dashboard.png          # Glassmorphic Gradio Web UI dashboard screenshot
 │   └── *.png                         # High-res decision boundary & sweep plots
 │
 ├── utils/                            # Cross-cutting infrastructure utilities
@@ -460,44 +456,7 @@ python rag/build_knowledge_base.py
 
 ---
 
-## 12. Expected Outputs & Project Workflow
-
-When the pipeline completes execution, your workspace will contain the following verified production artifacts:
-
-| Folder / File Path | Artifact Type | Description & Verification Criteria |
-| :--- | :--- | :--- |
-| `models/checkpoints/fraud_cnn_baseline.pth` | PyTorch Weights | Pinned baseline CNN checkpoint achieving **88.82% clean test accuracy**. |
-| `models/checkpoints/fraud_cnn_adv_trained.pth` | PyTorch Weights | PGD adversarially fine-tuned checkpoint achieving **37.50% robust PGD accuracy**. |
-| `mlruns/` & `mlflow_export/runs/` | Tracking Store | 73 individual experiment run logs formatted in clean markdown and SQLite/YAML. |
-| `reports/attack_evaluation.md` | Executive Report | Comprehensive markdown analysis of empirical attack degradation and superclass vulnerability. |
-| `reports/defense_comparison.csv` | Benchmark Table | 6-column CSV comparing clean acc, FGSM acc, PGD acc, C&W success, and training hours. |
-| `reports/summary.pdf` | Executive Briefing | **Exactly 1-page PDF** synthesizing architecture, threat models, results, and compliance. |
-| `reports/fgsm_epsilon_sweep.png` | Visual Plot | High-DPI plot illustrating accuracy degradation across $\epsilon \in [0.01, 0.05, 0.1, 0.2]$. |
-| `reports/pca_decision_regions.png` | Visual Plot | 2D PCA decision region contour map overlaying clean and adversarial test samples. |
-| `reports/umap_tsne_plot.png` | Visual Plot | Side-by-side penultimate feature embeddings colored by true vs. predicted classes. |
-| `reports/boundary_probe.png` | Visual Plot | Linear interpolation confidence curves identifying exact class boundary crossing fractions. |
-| `rag/chatbot_eval.json` | Evaluation JSON | 6 benchmark Q&A pairs capturing queries, retrieved chunks, similarity scores, and answers. |
-
----
-
-## 13. Model Architecture (`FraudCNN`)
-
-The target classifier is a custom 3-block Convolutional Neural Network designed specifically for 32x32 document layouts without relying on pre-trained ImageNet weights:
-
-```python
-# Conceptual Architecture Summary of FraudCNN
-Block 1: Conv2d(3, 32)  -> BatchNorm2d -> ReLU -> MaxPool2d(2x2) -> Dropout(0.25)
-Block 2: Conv2d(32, 64) -> BatchNorm2d -> ReLU -> MaxPool2d(2x2) -> Dropout(0.25)
-Block 3: Conv2d(64, 128)-> BatchNorm2d -> ReLU -> MaxPool2d(2x2) -> Dropout(0.40)
-Classifier: Linear(128*4*4, 512) -> BatchNorm1d -> ReLU -> Dropout(0.50) -> Linear(512, 3)
-```
-* **Why Batch Normalization?** Stabilizes covariance shift across batches, enabling higher learning rates ($1 \times 10^{-3}$ AdamW) and faster convergence.
-* **Why Heavy Dropout (0.25 $\rightarrow$ 0.50)?** Prevents co-adaptation of features on small 32x32 images, forcing the network to learn redundant visual pathways that improve clean generalization (**88.82% test accuracy**).
-* **Preprocessing Contract:** All images are scaled strictly to `[0.0, 1.0]` via `transforms.ToTensor()` **without mean/std normalization**, ensuring seamless bounding compatibility (`clip_values=(0.0, 1.0)`) with IBM ART attack wrappers.
-
----
-
-## 14. Adversarial Attacks & Vulnerability Analysis
+## 12. Adversarial Attacks & Vulnerability Analysis
 
 We red-teamed `FraudCNN` across three white-box evasion threat models using ART's `PyTorchClassifier`:
 
@@ -512,7 +471,7 @@ Our per-class vulnerability breakdown in `attack_evaluation.md` revealed that **
 
 ---
 
-## 15. Defense Mechanisms & Benchmarking
+## 13. Defense Mechanisms & Benchmarking
 
 We benchmarked two distinct defense philosophies: training-time robust regularization vs. inference-time input sanitization:
 
@@ -523,26 +482,7 @@ We benchmarked two distinct defense philosophies: training-time robust regulariz
 
 ---
 
-## 16. Explainability & Decision Boundary Analysis
-
-To explain feature space geometry to leadership, we materialized four analytical techniques in `reports/`:
-1. **UMAP / t-SNE Embeddings (`umap_tsne_plot.png`):** Projects 128-dimensional penultimate activations into 2D. Proves that adversarial attacks push clean clusters across decision separation interfaces.
-2. **PCA Decision Regions (`pca_regions.png`):** Maps decision boundary contours across the two primary principal components, visually showing adversarial samples crossing from Genuine into Forged territory.
-3. **Linear Interpolation Probes (`boundary_probe.png`):** Tracks model softmax confidence along a straight line connecting a clean sample to its adversarial counterpart, identifying exact boundary crossing thresholds.
-4. **DeepFool Boundary Distance Probing (`boundary_distance.py`):** Calculates minimum Euclidean distances to the boundary. Proves mathematically why Tampered documents fail first: they exhibit the shortest mean boundary distance in feature space.
-
----
-
-## 17. MLflow Experiment Tracking
-
-All training, attack campaigns, and defense benchmarks are logged deterministically into MLflow under standardized experiment names:
-* `AML-CNN-BASELINE`: Tracks baseline parameters (`lr=0.001`, `epochs=25`), validation loss curves, confusion matrices, and registers the production checkpoint under `FraudCNN`.
-* `AML-DEFENSE`: Tracks adversarial fine-tuning and feature squeezing benchmarks.
-* **Nested Attack Campaigns:** Epsilon sweeps and PGD step variations are logged as child runs under parent attack experiments, ensuring clean traceability across all 73 exported run logs.
-
----
-
-## 18. RAG Knowledge Retrieval System
+## 14. RAG Knowledge Retrieval System
 
 To make engineering logs accessible to non-technical directors, we built an offline-deterministic RAG engine:
 1. **Knowledge Base Construction:** `rag/build_knowledge_base.py` exports all MLflow runs, markdown reports, and CSV tables into `mlflow_export/`.
@@ -553,7 +493,7 @@ To make engineering logs accessible to non-technical directors, we built an offl
 
 ---
 
-## 19. CLI Demonstration & Executive Translation Guide
+## 15. CLI Demonstration & Executive Translation Guide
 
 The terminal assistant (`python rag/chatbot_cli.py --demo`) answers all 5 mandatory specification question categories plus out-of-domain refusals. Below is the verbatim demo transcript paired with our **Executive Translation Guide**:
 
@@ -624,7 +564,7 @@ Insufficient evidence in experiment logs. Please consult raw MLflow runs.
 
 ---
 
-## 20. Gradio Interactive Web UI
+## 16. Gradio Interactive Web UI
 
 To empower non-technical executives during C-suite presentations, we included an optional visual web dashboard (`python rag/gradio_app.py`, Bonus B3):
 * **✨ Glassmorphic Styling:** Modern dark/light responsive layout.
@@ -632,11 +572,14 @@ To empower non-technical executives during C-suite presentations, we included an
 * **📈 Real-Time Confidence Meters:** Color-coded gauges displaying exact cosine similarity scores.
 * **📂 Transparent Evidence Drawers:** Expandable accordions showing the raw MLflow markdown chunk used to generate the answer.
 
+### 🖥️ RAG Executive Assistant Dashboard
+![RAG Executive Assistant Gradio Web UI](reports/gradio_dashboard.png)
+
 *(Launch locally on port 7860: `http://127.0.0.1:7860`)*
 
 ---
 
-## 21. Empirical Results & Defense Comparison
+## 17. Empirical Results & Defense Comparison
 
 Below is our materialized **Defense Comparison Table** (`reports/defense_comparison.csv`), logged as an MLflow artifact:
 
@@ -648,36 +591,7 @@ Below is our materialized **Defense Comparison Table** (`reports/defense_compari
 
 ---
 
-## 22. Deliverables Checklist (Section 9 Compliance)
-
-We performed an exhaustive audit against **Section 9 of `technical-blueprint.md`**. All 19 mandatory deliverables and 1 bonus deliverable are **100% Verified** on disk:
-
-| # | Deliverable Name | Requirement Specification | Repository Path / Evidence | Status |
-| :---: | :--- | :--- | :--- | :---: |
-| **1** | **GitHub Repository** | Public/collaborator access; clear structure | Root workspace directory | 🟢 **Verified** |
-| **2** | **README.md** | Setup, mapping justification, findings, demo | `README.md` (this document) | 🟢 **Verified** |
-| **3** | **REPRODUCIBILITY.md** | Fixed seeds, hardware specs, runtime estimates | `REPRODUCIBILITY.md` | 🟢 **Verified** |
-| **4** | **requirements.txt** | Pinned operational library dependencies | `requirements.txt` | 🟢 **Verified** |
-| **5** | **run_all.sh** | End-to-end automated execution script | `run_all.sh` | 🟢 **Verified** |
-| **6** | **Trained Model Checkpoint** | Registered in MLflow; clean acc $\ge 75\%$ | `models/checkpoints/fraud_cnn_baseline.pth` | 🟢 **Verified** |
-| **7** | **MLflow Baseline Experiment** | `AML-CNN-BASELINE` with params & metrics | `mlruns/` & `mlflow_export/runs/` | 🟢 **Verified** |
-| **8** | **MLflow Defense Experiment** | `AML-DEFENSE` with fine-tuning & squeezing | `mlruns/` & `mlflow_export/runs/` | 🟢 **Verified** |
-| **9** | **Attack Nested Runs** | Child runs under parent attack campaigns | `mlruns/` & `mlflow_export/runs/` | 🟢 **Verified** |
-| **10** | **Attack Evaluation Report** | Markdown report with tables & degradation plots | `reports/attack_evaluation.md` | 🟢 **Verified** |
-| **11** | **Decision Boundary Visualizations** | PNG/SVG plots of UMAP, PCA, & Probes | `reports/*.png` | 🟢 **Verified** |
-| **12** | **Defense Comparison Table** | 6-column CSV table logged in MLflow | `reports/defense_comparison.csv` | 🟢 **Verified** |
-| **13** | **MLflow Export Folder** | Structured markdown/JSON run snapshots | `mlflow_export/` | 🟢 **Verified** |
-| **14** | **RAG CLI (`chatbot_cli.py`)** | Interactive terminal assistant & benchmark demo | `rag/chatbot_cli.py` | 🟢 **Verified** |
-| **15** | **Demo Transcript** | Verbatim execution transcript of all 5 query types | Section 19 of this README | 🟢 **Verified** |
-| **16** | **chatbot_eval.json** | 5+ Q&A evaluation pairs with source chunks | `rag/chatbot_eval.json` | 🟢 **Verified** |
-| **17** | **1-Page Summary PDF** | Executive summary $\le 1$ physical page | `reports/summary.pdf` (49.3 KB) | 🟢 **Verified** |
-| **18** | **Boundary Distance Analysis** | DeepFool L2 distance correlated with ASR | `visualization/boundary_distance.py` | 🟢 **Verified** |
-| **19** | **Per-Class Attack Results** | Vulnerability breakdown by fraud category | `reports/attack_evaluation.md` | 🟢 **Verified** |
-| **B3** | **Gradio Web UI (Bonus)** | Interactive glassmorphic web dashboard | `rag/gradio_app.py` | 🟢 **Verified** |
-
----
-
-## 23. Testing
+## 18. Testing
 
 ### 🧪 Automated Test Suite
 The repository includes an automated regression suite built with `pytest` verifying data mapping, chunking, model convergence, and ART wrapping:
@@ -688,7 +602,7 @@ python -m pytest
 
 ---
 
-## 24. Future Improvements
+## 19. Future Improvements
 
 ### 🚀 Future Engineering Roadmap
 1. **TRADES Regularization:** Implement Trade-off-inspired Adversarial Defense via Surrogate-loss to maintain $\ge 75\%$ clean accuracy during adversarial fine-tuning.
@@ -699,7 +613,7 @@ python -m pytest
 
 ---
 
-## 25. References
+## 20. References
 
 ### 📚 Academic & Engineering References
 * Goodfellow, I. J., Shlens, J., & Szegedy, C. (2014). *Exploiting and Resisting Adversarial Examples.* ICLR.
