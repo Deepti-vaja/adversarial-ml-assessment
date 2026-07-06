@@ -32,7 +32,6 @@
 17. [Empirical Results & Defense Comparison](#17-empirical-results--defense-comparison)
 18. [Testing](#18-testing)
 19. [Future Improvements](#19-future-improvements)
-20. [References](#20-references)
 
 ---
 
@@ -603,14 +602,3 @@ python -m pytest
 3. **Randomized Smoothing (Bonus D2):** Provide mathematically certified L2 robustness bounds at radius $r=0.25$.
 4. **RVL-CDIP Upgrade:** Scale proxy dataset to full-resolution grayscale document images (invoices, memos, letters).
 5. **Live MLflow Polling:** Upgrade RAG retriever to index live streaming experiment databases in real time.
-
----
-
-## 20. References
-
-### 📚 Academic & Engineering References
-* Goodfellow, I. J., Shlens, J., & Szegedy, C. (2014). *Exploiting and Resisting Adversarial Examples.* ICLR.
-* Madry, A., Makelov, A., Schmidt, L., Tsipras, D., & Vladu, A. (2018). *Towards Deep Learning Models Resistant to Adversarial Attacks.* ICLR.
-* Carlini, N., & Wagner, D. (2017). *Towards Evaluating the Robustness of Neural Networks.* IEEE Symposium on Security and Privacy.
-* Xu, W., Evans, D., & Qi, Y. (2018). *Feature Squeezing: Detecting Adversarial Examples in Deep Neural Networks.* NDSS.
-* Nicolae, M.-I., et al. (2018). *Adversarial Robustness Toolbox v1.2.0.* CoRR.
