@@ -37,8 +37,8 @@
 21. [Empirical Results & Defense Comparison](#28-empirical-results--defense-comparison)
 22. [Deliverables Checklist (Section 9 Compliance)](#29-deliverables-checklist-section-9-compliance)
 23. [Testing & Reproducibility](#31-testing--reproducibility)
-24. [Limitations & Future Improvements](#33-limitations--future-improvements)
-25. [References & License](#35-references--license)
+24. [Future Improvements](#33---future-improvements)
+25. [References](#35-references--)
 
 ---
 
