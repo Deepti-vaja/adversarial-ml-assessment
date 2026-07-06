@@ -14,35 +14,35 @@
 ---
 
 ## 📋 Table of Contents
-1. [Executive Summary](#3-executive-summary)
-2. [Problem Statement & Business Motivation](#4-problem-statement--business-motivation)
-3. [Project Objectives](#6-project-objectives)
-4. [Key Features](#7-key-features)
-5. [System Architecture](#8-system-architecture)
-6. [End-to-End Pipeline & Data Flow](#9-end-to-end-pipeline--data-flow)
-7. [Repository Structure](#10-repository-structure)
-8. [Dataset Overview & CIFAR-10 Mapping Justification](#11-dataset-overview--cifar-10-mapping-justification)
-9. [Technology Stack](#13-technology-stack)
-10. [Installation & Prerequisites](#14-installation--prerequisites)
-11. [Quick Start & Detailed Run Instructions](#16-quick-start--detailed-run-instructions)
-12. [Expected Outputs & Project Workflow](#18-expected-outputs--project-workflow)
-13. [Model Architecture (`FraudCNN`)](#20-model-architecture-fraudcnn)
-14. [Adversarial Attacks & Vulnerability Analysis](#21-adversarial-attacks--vulnerability-analysis)
-15. [Defense Mechanisms & Benchmarking](#22-defense-mechanisms--benchmarking)
-16. [Explainability & Decision Boundary Analysis](#23-explainability--decision-boundary-analysis)
-17. [MLflow Experiment Tracking](#24-mlflow-experiment-tracking)
-18. [RAG Knowledge Retrieval System](#25-rag-knowledge-retrieval-system)
-19. [CLI Demonstration & Executive Translation Guide](#26-cli-demonstration--executive-translation-guide)
-20. [Gradio Interactive Web UI](#27-gradio-interactive-web-ui)
-21. [Empirical Results & Defense Comparison](#28-empirical-results--defense-comparison)
-22. [Deliverables Checklist (Section 9 Compliance)](#29-deliverables-checklist-section-9-compliance)
-23. [Testing & Reproducibility](#30-testing--reproducibility)
-24. [Future Improvements](#31-future-improvements)
-25. [References](#32-references--)
+1. [Executive Summary](#1-executive-summary)
+2. [Problem Statement & Business Motivation](#2-problem-statement--business-motivation)
+3. [Project Objectives](#3-project-objectives)
+4. [Key Features](#4-key-features)
+5. [System Architecture](#5-system-architecture)
+6. [End-to-End Pipeline & Data Flow](#6-end-to-end-pipeline--data-flow)
+7. [Repository Structure](#7-repository-structure)
+8. [Dataset Overview & CIFAR-10 Mapping Justification](#8-dataset-overview--cifar-10-mapping-justification)
+9. [Technology Stack](#9-technology-stack)
+10. [Installation & Prerequisites](#10-installation--prerequisites)
+11. [Quick Start & Detailed Run Instructions](#11-quick-start--detailed-run-instructions)
+12. [Expected Outputs & Project Workflow](#12-expected-outputs--project-workflow)
+13. [Model Architecture (`FraudCNN`)](#13-model-architecture-fraudcnn)
+14. [Adversarial Attacks & Vulnerability Analysis](#14-adversarial-attacks--vulnerability-analysis)
+15. [Defense Mechanisms & Benchmarking](#15-defense-mechanisms--benchmarking)
+16. [Explainability & Decision Boundary Analysis](#16-explainability--decision-boundary-analysis)
+17. [MLflow Experiment Tracking](#17-mlflow-experiment-tracking)
+18. [RAG Knowledge Retrieval System](#18-rag-knowledge-retrieval-system)
+19. [CLI Demonstration & Executive Translation Guide](#19-cli-demonstration--executive-translation-guide)
+20. [Gradio Interactive Web UI](#20-gradio-interactive-web-ui)
+21. [Empirical Results & Defense Comparison](#21-empirical-results--defense-comparison)
+22. [Deliverables Checklist (Section 9 Compliance)](#22-deliverables-checklist-section-9-compliance)
+23. [Testing & Reproducibility](#23-testing--reproducibility)
+24. [Limitations & Future Improvements](#24-limitations--future-improvements)
+25. [References & License](#25-references--license)
 
 ---
 
-## 3. Executive Summary
+## 1. Executive Summary
 
 In financial technology (fintech), automating document verification using Computer Vision accelerates customer onboarding and check processing. However, deploying neural networks without stress-testing their resilience against **Adversarial Machine Learning (AML)** introduces catastrophic security risks. An attacker can apply imperceptible mathematical noise ($L_\infty$ or $L_2$ perturbations) to a forged document, manipulating the AI into classifying a counterfeit file as **100% Genuine**.
 
@@ -54,7 +54,7 @@ This repository implements a production-ready, end-to-end evaluation methodology
 
 ---
 
-## 4. Problem Statement & Business Motivation
+## 2. Problem Statement & Business Motivation
 
 ### 🏢 The Business Risk
 A retail bank deploying Computer Vision for fraud detection faces two competing pressures:
@@ -66,7 +66,7 @@ Standard machine learning models are optimized for natural data distributions, l
 
 ---
 
-## 6. Project Objectives
+## 3. Project Objectives
 
 This assessment rigorously fulfills six engineering objectives:
 1. **Task A (CNN Design & Training):** Design, regularize, and train a custom PyTorch CNN from scratch on a standardized proxy dataset, surpassing the $\ge 75\%$ clean accuracy quality gate.
@@ -78,7 +78,7 @@ This assessment rigorously fulfills six engineering objectives:
 
 ---
 
-## 7. Key Features
+## 4. Key Features
 
 * **🚫 Zero-ImageNet Pretraining:** Built 100% from scratch using custom architectures and PyTorch DataLoaders.
 * **🔒 100% Reproducible Execution:** Fixed seeding across PyTorch, NumPy, Python Random, and CUDA documented in `REPRODUCIBILITY.md`.
@@ -89,7 +89,7 @@ This assessment rigorously fulfills six engineering objectives:
 
 ---
 
-## 8. System Architecture
+## 5. System Architecture
 
 The repository is structured into six modular, decoupled subsystems that communicate through standardized file and database interfaces:
 
@@ -161,7 +161,7 @@ flowchart TB
 
 ---
 
-## 9. End-to-End Pipeline & Data Flow
+## 6. End-to-End Pipeline & Data Flow
 
 ### 🔄 Data Flow Diagram
 The data pipeline transforms raw pixel arrays into verified executive knowledge:
@@ -265,7 +265,7 @@ The execution order enforces strict quality gating: training cannot proceed with
 
 ---
 
-## 10. Repository Structure
+## 7. Repository Structure
 
 The codebase is organized into an enterprise-ready package hierarchy separating models, attacks, defenses, tracking, and interfaces:
 
@@ -350,7 +350,7 @@ adversarial-ml-assessment/
 
 ---
 
-## 11. Dataset Overview & CIFAR-10 Mapping Justification
+## 8. Dataset Overview & CIFAR-10 Mapping Justification
 
 ### ⚖️ The Academic Proxy Rationale
 Real-world banking fraud datasets containing forged passports, altered tax returns, and counterfeit checks are proprietary, legally protected under financial privacy laws (e.g., GLBA, GDPR), and computationally prohibitive to train from scratch on multi-gigabyte 4K images. 
@@ -368,7 +368,7 @@ This taxonomy isolates a critical cybersecurity property: **models with complex,
 
 ---
 
-## 13. Technology Stack
+## 9. Technology Stack
 
 * **Core Language:** Python 3.10+
 * **Deep Learning Framework:** PyTorch 2.1.0+, Torchvision 0.16.0+
@@ -380,7 +380,7 @@ This taxonomy isolates a critical cybersecurity property: **models with complex,
 
 ---
 
-## 14. Installation & Prerequisites
+## 10. Installation & Prerequisites
 
 ### 💻 Prerequisites
 * **Operating System:** Windows 10/11, Ubuntu Linux 20.04+, or macOS 12+
@@ -425,7 +425,7 @@ pip install -r requirements.txt
 
 ---
 
-## 16. Quick Start & Detailed Run Instructions
+## 11. Quick Start & Detailed Run Instructions
 
 ### ⚡ Option 1: Automated End-to-End Orchestration (Recommended)
 To execute the entire project lifecycle—from data downloading and baseline training through evasion attacks, defense benchmarking, visualization rendering, MLflow exporting, and RAG evaluation—execute our automated master script:
@@ -461,7 +461,7 @@ python rag/build_knowledge_base.py
 
 ---
 
-## 18. Expected Outputs & Project Workflow
+## 12. Expected Outputs & Project Workflow
 
 When the pipeline completes execution, your workspace will contain the following verified production artifacts:
 
@@ -481,7 +481,7 @@ When the pipeline completes execution, your workspace will contain the following
 
 ---
 
-## 20. Model Architecture (`FraudCNN`)
+## 13. Model Architecture (`FraudCNN`)
 
 The target classifier is a custom 3-block Convolutional Neural Network designed specifically for 32x32 document layouts without relying on pre-trained ImageNet weights:
 
@@ -498,7 +498,7 @@ Classifier: Linear(128*4*4, 512) -> BatchNorm1d -> ReLU -> Dropout(0.50) -> Line
 
 ---
 
-## 21. Adversarial Attacks & Vulnerability Analysis
+## 14. Adversarial Attacks & Vulnerability Analysis
 
 We red-teamed `FraudCNN` across three white-box evasion threat models using ART's `PyTorchClassifier`:
 
@@ -513,7 +513,7 @@ Our per-class vulnerability breakdown in `attack_evaluation.md` revealed that **
 
 ---
 
-## 22. Defense Mechanisms & Benchmarking
+## 15. Defense Mechanisms & Benchmarking
 
 We benchmarked two distinct defense philosophies: training-time robust regularization vs. inference-time input sanitization:
 
@@ -524,7 +524,7 @@ We benchmarked two distinct defense philosophies: training-time robust regulariz
 
 ---
 
-## 23. Explainability & Decision Boundary Analysis
+## 16. Explainability & Decision Boundary Analysis
 
 To explain feature space geometry to leadership, we materialized four analytical techniques in `reports/`:
 1. **UMAP / t-SNE Embeddings (`umap_tsne_plot.png`):** Projects 128-dimensional penultimate activations into 2D. Proves that adversarial attacks push clean clusters across decision separation interfaces.
@@ -534,7 +534,7 @@ To explain feature space geometry to leadership, we materialized four analytical
 
 ---
 
-## 24. MLflow Experiment Tracking
+## 17. MLflow Experiment Tracking
 
 All training, attack campaigns, and defense benchmarks are logged deterministically into MLflow under standardized experiment names:
 * `AML-CNN-BASELINE`: Tracks baseline parameters (`lr=0.001`, `epochs=25`), validation loss curves, confusion matrices, and registers the production checkpoint under `FraudCNN`.
@@ -543,7 +543,7 @@ All training, attack campaigns, and defense benchmarks are logged deterministica
 
 ---
 
-## 25. RAG Knowledge Retrieval System
+## 18. RAG Knowledge Retrieval System
 
 To make engineering logs accessible to non-technical directors, we built an offline-deterministic RAG engine:
 1. **Knowledge Base Construction:** `rag/build_knowledge_base.py` exports all MLflow runs, markdown reports, and CSV tables into `mlflow_export/`.
@@ -554,7 +554,7 @@ To make engineering logs accessible to non-technical directors, we built an offl
 
 ---
 
-## 26. CLI Demonstration & Executive Translation Guide
+## 19. CLI Demonstration & Executive Translation Guide
 
 The terminal assistant (`python rag/chatbot_cli.py --demo`) answers all 5 mandatory specification question categories plus out-of-domain refusals. Below is the verbatim demo transcript paired with our **Executive Translation Guide**:
 
@@ -625,7 +625,7 @@ Insufficient evidence in experiment logs. Please consult raw MLflow runs.
 
 ---
 
-## 27. Gradio Interactive Web UI
+## 20. Gradio Interactive Web UI
 
 To empower non-technical executives during C-suite presentations, we included an optional visual web dashboard (`python rag/gradio_app.py`, Bonus B3):
 * **✨ Glassmorphic Styling:** Modern dark/light responsive layout.
@@ -637,7 +637,7 @@ To empower non-technical executives during C-suite presentations, we included an
 
 ---
 
-## 28. Empirical Results & Defense Comparison
+## 21. Empirical Results & Defense Comparison
 
 Below is our materialized **Defense Comparison Table** (`reports/defense_comparison.csv`), logged as an MLflow artifact:
 
@@ -649,7 +649,7 @@ Below is our materialized **Defense Comparison Table** (`reports/defense_compari
 
 ---
 
-## 29. Deliverables Checklist (Section 9 Compliance)
+## 22. Deliverables Checklist (Section 9 Compliance)
 
 We performed an exhaustive audit against **Section 9 of `technical-blueprint.md`**. All 19 mandatory deliverables and 1 bonus deliverable are **100% Verified** on disk:
 
@@ -678,17 +678,26 @@ We performed an exhaustive audit against **Section 9 of `technical-blueprint.md`
 
 ---
 
-## 30. Testing 
+## 23. Testing & Reproducibility
 
 ### 🧪 Automated Test Suite
 The repository includes an automated regression suite built with `pytest` verifying data mapping, chunking, model convergence, and ART wrapping:
 ```bash
 python -m pytest
 # Result: 31 passed in 14.2 seconds (100% success rate)
+```
+
+### 🔒 Deterministic Reproducibility
+Per `REPRODUCIBILITY.md`, all random states are strictly locked to `seed = 42` across `torch`, `torch.cuda`, `numpy`, and `random`. Target hardware: Single NVIDIA GPU ($\ge 8$ GB VRAM) or Google Colab T4. Estimated wall-clock execution time for full pipeline: **~2.1 hours**.
+
 ---
 
-## 31. Future Improvements
+## 24. Limitations & Future Improvements
 
+### ⚠️ Scope Limitations
+1. **Resolution Constraint:** 32x32 CIFAR-10 images serve as an academic proxy; real-world document fraud involves 4K/8K high-resolution scans.
+2. **$L_\infty$ Norm Bound:** Focuses on pixel-bound perturbations; real-world document fraud involves physical patch occlusion or typographical alteration.
+3. **Clean Accuracy Trade-off:** Standard PGD adversarial training drops clean accuracy to 37.50%, necessitating ensemble routing in production.
 
 ### 🚀 Future Engineering Roadmap
 1. **TRADES Regularization:** Implement Trade-off-inspired Adversarial Defense via Surrogate-loss to maintain $\ge 75\%$ clean accuracy during adversarial fine-tuning.
@@ -699,7 +708,7 @@ python -m pytest
 
 ---
 
-## 32. References 
+## 25. References & License
 
 ### 📚 Academic & Engineering References
 * Goodfellow, I. J., Shlens, J., & Szegedy, C. (2014). *Exploiting and Resisting Adversarial Examples.* ICLR.
@@ -707,3 +716,6 @@ python -m pytest
 * Carlini, N., & Wagner, D. (2017). *Towards Evaluating the Robustness of Neural Networks.* IEEE Symposium on Security and Privacy.
 * Xu, W., Evans, D., & Qi, Y. (2018). *Feature Squeezing: Detecting Adversarial Examples in Deep Neural Networks.* NDSS.
 * Nicolae, M.-I., et al. (2018). *Adversarial Robustness Toolbox v1.2.0.* CoRR.
+
+### 📄 License
+This project is licensed under the **MIT License**. See the `LICENSE` file for details. Designed and built for the AgentsArchitects.ai Engineering Assessment.
