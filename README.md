@@ -22,7 +22,7 @@
 7. [Repository Structure](#7-repository-structure)
 8. [Dataset Overview & CIFAR-10 Mapping Justification](#8-dataset-overview--cifar-10-mapping-justification)
 9. [Technology Stack](#9-technology-stack)
-10. [Installation & Prerequisites](#10-installation--prerequisites)
+10. [Installation & Environment Setup](#10-installation--environment-setup)
 11. [Quick Start & Detailed Run Instructions](#11-quick-start--detailed-run-instructions)
 12. [Adversarial Attacks & Vulnerability Analysis](#12-adversarial-attacks--vulnerability-analysis)
 13. [Defense Mechanisms & Benchmarking](#13-defense-mechanisms--benchmarking)
@@ -375,14 +375,7 @@ This taxonomy isolates a critical cybersecurity property: **models with complex,
 
 ---
 
-## 10. Installation & Prerequisites
-
-### 💻 Prerequisites
-* **Operating System:** Windows 10/11, Ubuntu Linux 20.04+, or macOS 12+
-* **Python Version:** Python 3.10 or 3.11 (Python 3.12+ not recommended due to PyTorch/ChromaDB compilation dependencies)
-* **Hardware:** Minimum 8 GB RAM (NVIDIA GPU with $\ge 8$ GB VRAM recommended for fast PGD training; runs cleanly on CPU with extended runtime).
-
-### 🛠️ Environment Setup
+## 10. Installation & Environment Setup
 
 #### Windows (PowerShell)
 ```powershell
