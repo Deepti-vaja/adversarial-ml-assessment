@@ -413,15 +413,7 @@ pip install -r requirements.txt
 
 ## 11. Quick Start & Detailed Run Instructions
 
-### ⚡ Option 1: Automated End-to-End Orchestration (Recommended)
-To execute the entire project lifecycle—from data downloading and baseline training through evasion attacks, defense benchmarking, visualization rendering, MLflow exporting, and RAG evaluation—execute our automated master script:
-
-```bash
-bash run_all.sh
-```
-*(Note for Windows users without Git Bash or WSL: You can execute the individual modular scripts sequentially as shown below).*
-
-### 🔧 Option 2: Modular Step-by-Step Execution
+### 🔧 Modular Step-by-Step Execution
 
 ```bash
 # 1. Train Baseline Model (Task A) — Enforces >= 75% accuracy quality gate
