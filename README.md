@@ -387,9 +387,15 @@ python -m venv .venv
 # 3. Activate the virtual environment
 .\.venv\Scripts\activate
 
-# 4. Upgrade pip and install pinned operational dependencies
-python -m pip install --upgrade pip
+# 4. Install project dependencies
 pip install -r requirements.txt
+
+# 5. Launch the CLI Assistant
+python -m rag.chatbot_cli
+
+# 6. Launch the Gradio Web UI (Optional)
+python -m rag.gradio_app
+
 ```
 
 #### Linux / macOS (Bash)
@@ -404,9 +410,16 @@ python3 -m venv .venv
 # 3. Activate the virtual environment
 source .venv/bin/activate
 
-# 4. Upgrade pip and install pinned operational dependencies
-pip install --upgrade pip
+# 4. Install project dependencies
 pip install -r requirements.txt
+
+# 5. Launch the CLI Assistant
+python3 -m rag.chatbot_cli
+
+# 6. Launch the Gradio Web UI (Optional)
+python3 -m rag.gradio_app
+
+
 ```
 
 ---
