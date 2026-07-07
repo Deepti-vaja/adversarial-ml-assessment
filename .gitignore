@@ -2,7 +2,7 @@
 .venv/
 venv/
 env/
-__pycache__/
+
 *.py[cod]
 *$py.class
 
@@ -28,7 +28,3 @@ data/cifar10/
 # Local databases & vector index
 rag/vector_store/
 
-# Audit & scratch documents
-
-CURRENT_PROJECT_IMPLEMENTATION_STATUS.md
-TECHNICAL_BLUEPRINT_COMPLIANCE_REVIEW.md
