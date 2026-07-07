@@ -67,7 +67,7 @@ This assessment rigorously fulfills six engineering objectives:
 3. **Task C (Decision Boundary Explainability):** Visualize feature space partitioning using UMAP, PCA decision regions, and linear interpolation probes, while correlating DeepFool $L_2$ boundary distances with attack success rates.
 4. **Task D (Defense Benchmarking):** Implement Adversarial Training and Feature Squeezing, producing an audit-ready comparison table evaluating clean accuracy, robust accuracy, and training wall-clock overhead.
 5. **Task E (Explainable RAG Chatbot):** Export tracking logs into a ChromaDB vector store and build an interactive CLI/Web assistant that answers stakeholder queries with explicit section citations and an ironclad Hallucination Guard ($\text{sim} < 0.15$).
-6. **Task F (Enterprise Reproducibility):** Enforce strict deterministic seeding across all libraries and provide a single orchestration script (`run_all.sh`) that executes the entire pipeline end-to-end.
+
 
 ---
 
